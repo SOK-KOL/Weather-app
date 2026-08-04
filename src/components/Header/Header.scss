@@ -1,0 +1,74 @@
+@use "../../styles/variables" as *;
+.header {
+  width: 100%;
+  padding: 16px 20px;
+  background-color: rgb($color-bg-primary, 0.85);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9;
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 30px;
+  }
+  &-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    &__title {
+      color: $color-text-primary;
+      font-size: 24px;
+      font-weight: 700;
+      margin: 0;
+    }
+  }
+
+  &-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    &__btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background-color: $color-accent-blue;
+      border-radius: $radius-button;
+      color: $color-text-primary;
+      border: none;
+      cursor: pointer;
+      transition: $transition-default;
+
+      svg {
+        width: 18px;
+        height: 18px;
+        fill: currentColor;
+      }
+      &:hover {
+        background-color: $color-accent-blue-hover;
+      }
+      &-text {
+        font-size: 15px;
+        font-weight: 500;
+      }
+
+      &--settings {
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        justify-content: center;
+        background-color: $color-button-black;
+        border-radius: 50%;
+        &:hover {
+          background-color: $color-bg-card-hover;
+        }
+      }
+    }
+  }
+}

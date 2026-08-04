@@ -1,0 +1,71 @@
+@use "../../styles/variables" as *;
+.details {
+  padding: 100px 0 20px;
+
+  &__text {
+    font-size: 20px;
+    color: $color-text-secondary;
+    margin: 0 0 5px 0;
+    text-transform: uppercase;
+  }
+
+  &__location {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 0 0 10px;
+
+    &-city {
+      font-size: 28px;
+      font-weight: 700;
+      color: $color-text-primary;
+      margin: 0;
+    }
+
+    &-country {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 16px;
+      color: $color-text-secondary;
+      margin: 0;
+    }
+    svg {
+      fill: currentColor;
+    }
+  }
+
+  &__info {
+    font-size: 14px;
+    color: $color-text-muted;
+    margin: 0 0 24px 0;
+  }
+
+  &__charts {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    gap: 20px;
+    margin-top: 20px;
+    align-items: start;
+  }
+
+  &__chart {
+    &--temp {
+      grid-column: span 2;
+    }
+
+    &--humidity {
+      grid-column: span 1;
+      min-height: 200px;
+    }
+
+    &--wind {
+      grid-column: span 1;
+    }
+  }
+
+  &__table {
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+}

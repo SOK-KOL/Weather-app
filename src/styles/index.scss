@@ -1,0 +1,5 @@
+@use "variables" as *; //Нормализация
+@use "normalize";
+// Глобальный стиль
+@use "reboot";
+@use "container";

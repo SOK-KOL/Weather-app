@@ -1,0 +1,132 @@
+@use "../../styles/variables" as *;
+.forecast {
+  justify-content: center;
+  align-items: center;
+  &__form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+
+    &-title {
+      color: $color-text-primary;
+      margin: 0;
+      text-transform: uppercase;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    &-input {
+      display: none;
+
+      &:checked + .forecast__form-label {
+        background-color: #007bff;
+        color: #fff;
+      }
+    }
+
+    &-label {
+      padding: 8px 16px;
+      border: 2px solid #007bff;
+      border-radius: 5px;
+      background-color: transparent;
+      color: #007bff;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      transition:
+        background-color 0.3s,
+        color 0.3s;
+
+      &:hover {
+        background-color: #0056b3;
+        color: #fff;
+      }
+    }
+  }
+
+  &-list {
+    width: 100%;
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    padding: 0;
+    list-style-type: none;
+
+    &--large {
+      flex-wrap: wrap;
+    }
+
+    &__element {
+      background-color: $color-bg-card;
+      border-radius: $radius-button;
+      padding: 10px;
+      width: 420px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &--small {
+        width: 140px;
+      }
+
+      &-day {
+        margin: 0 0 5px;
+        color: $color-text-primary;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+      &-date {
+        margin: 0 0 10px;
+        color: $color-text-secondary;
+      }
+      &-status {
+        color: $color-text-secondary;
+        font-size: 14px;
+        margin: 0 0 4px;
+        text-align: center;
+
+        &--small {
+          min-height: 48px;
+        }
+      }
+      &-temp {
+        color: $color-text-primary;
+        font-size: 16px;
+        margin: 0 0 15px;
+      }
+      svg {
+        width: 40px;
+        height: 40px;
+      }
+
+      &-wind {
+        display: flex;
+        margin-top: auto;
+        gap: 10px;
+        flex-direction: column;
+
+        &-speed {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+        svg {
+          fill: currentColor;
+          width: 18px;
+          height: 18px;
+        }
+        &-text {
+          font-size: 15px;
+        }
+
+        &-way {
+          display: flex;
+
+          align-items: center;
+          justify-content: space-evenly;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,110 @@
+.current-weather {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 0 30px;
+}
+.current-weather__inner {
+  background-color: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.current-weather .current-weather__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+.current-weather .current-weather__left {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.current-weather .current-weather__content-map {
+  width: 32px;
+  height: 32px;
+  fill: #94a3b8;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+.current-weather__info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.current-weather__info-text {
+  font-size: 14px;
+  color: #94a3b8;
+  text-transform: uppercase;
+  margin: 0;
+}
+.current-weather__info-city {
+  font-size: 28px;
+  color: #ffffff;
+  margin: 0;
+}
+.current-weather__info-meteo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  color: #94a3b8;
+  margin: 0;
+}
+.current-weather__temp {
+  text-align: right;
+  padding: 0;
+}
+.current-weather__temp-text {
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1;
+  color: #ffffff;
+  margin: 0;
+}
+.current-weather__temp-feels {
+  font-size: 14px;
+  color: #94a3b8;
+  margin: 0;
+  padding-top: 4px;
+}
+.current-weather__temp-feels--golden {
+  color: #f59e0b;
+}
+.current-weather__details {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 15px;
+  width: 100%;
+  padding: 0;
+}
+.current-weather__element {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 16px;
+  background-color: rgba(255, 255, 255, 0.04);
+  border-radius: 8px;
+}
+.current-weather__element svg {
+  width: 30px;
+  height: 30px;
+  fill: currentColor;
+}
+.current-weather__element-text {
+  font-size: 13px;
+  color: #94a3b8;
+  margin: 0;
+}
+.current-weather__element-info {
+  font-size: 15px;
+  color: #ffffff;
+  font-weight: 700;
+  margin: 0;
+}/*# sourceMappingURL=CurrentWeather.css.map */

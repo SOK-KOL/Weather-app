@@ -1,0 +1,63 @@
+@use "../../styles/variables" as *;
+
+.table {
+  margin-top: 30px;
+
+  &__wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    background: $color-bg-card;
+    border-radius: $radius-card;
+    padding: 4px 0;
+    border: 1px solid $color-border;
+
+    &-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: $color-text-primary;
+      margin: 6px 0 4px 15px;
+    }
+
+    &-info {
+      font-size: 13px;
+      color: $color-text-secondary;
+      margin: 4px 0 8px 15px;
+    }
+  }
+
+  &__grid {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    color: $color-text-primary;
+    min-width: 700px;
+  }
+
+  &__row {
+    transition: $transition-default;
+
+    &:hover {
+      background: $color-bg-card-hover;
+    }
+  }
+
+  &__cell {
+    padding: 12px 16px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+
+    &--head {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: $color-text-muted;
+      border-bottom: 2px solid $color-border;
+    }
+
+    &--day {
+      font-weight: 500;
+      color: $color-text-primary;
+      text-transform: uppercase;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+.back__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: #275db5;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  margin: 0 0 20px;
+}
+.back__btn:hover {
+  background-color: #2563eb;
+  border-color: #94a3b8;
+}
+.back__btn:active {
+  transform: scale(0.96);
+}
+.back__btn svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+.back__btn-text {
+  font-weight: 500;
+}/*# sourceMappingURL=BackButton.css.map */

@@ -1,0 +1,113 @@
+@use "../../styles/variables" as *;
+
+.search-bar {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  max-width: 800px;
+  margin: 0 auto 30px;
+
+  &__form {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+    align-items: center;
+  }
+  &__input-wrapper {
+    position: relative;
+    flex: 1;
+  }
+
+  &__input-error {
+    position: absolute;
+    top: -30px;
+    display: none;
+    font-size: 14px;
+    color: $color-error;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 12px 16px;
+    background-color: $color-input-halfWhite;
+    border: 1px solid $color-border;
+    border-radius: $radius-button;
+    color: $color-text-primary;
+    font-size: 16px;
+    transition: $transition-default;
+
+    &::placeholder {
+      color: $color-text-secondary;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $color-accent-blue;
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+  }
+
+  &__tips {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    width: 100%;
+    margin: 0;
+    padding: 8px 0;
+    list-style: none;
+    background: $color-bg-primary;
+    border: 1px solid $color-border;
+    border-radius: $radius-button;
+    z-index: 1;
+    max-height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    pointer-events: auto;
+
+    &-element {
+      padding: 8px 16px;
+      cursor: pointer;
+      transition: $transition-default;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.06);
+      }
+
+      &--selected {
+        background-color: $color-bg-card-hover;
+      }
+    }
+  }
+
+  &__button {
+    display: flex;
+    gap: 10px;
+    padding: 12px 24px;
+    background-color: $color-accent-blue;
+    border: none;
+    border-radius: $radius-button;
+    color: $color-text-primary;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: $transition-default;
+    &:hover {
+      background: $color-accent-blue-hover;
+    }
+    svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+    &-text {
+      margin: 0;
+      font-size: 16px;
+    }
+  }
+}
+.show {
+  display: block;
+}

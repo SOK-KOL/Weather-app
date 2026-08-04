@@ -1,0 +1,46 @@
+.forecast {
+  justify-content: center;
+}
+.forecast__title {
+  color: #ffffff;
+  margin: 0 0 16px;
+  text-transform: uppercase;
+}
+.forecast-list {
+  width: 100%;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  padding: 0;
+  list-style-type: none;
+}
+.forecast-list__element {
+  background-color: rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 10px;
+  width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.forecast-list__element-day {
+  margin: 0 0 5px;
+  color: #ffffff;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.forecast-list__element-status {
+  color: #94a3b8;
+  font-size: 14px;
+  margin: 0 0 4px;
+  text-align: center;
+}
+.forecast-list__element-temp {
+  color: #ffffff;
+  font-size: 16px;
+  margin: 0;
+}
+.forecast-list__element svg {
+  width: 40px;
+  height: 40px;
+}/*# sourceMappingURL=ForecastList.css.map */

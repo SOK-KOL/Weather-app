@@ -1,0 +1,22 @@
+@use "../../styles/variables" as *;
+
+.chart {
+  background: $color-bg-card;
+  border-radius: $radius-card;
+  padding: 16px;
+  border: 1px solid $color-border;
+  backdrop-filter: blur(10px);
+
+  &__title {
+    font-size: 18px;
+    font-weight: 600;
+    color: $color-text-primary;
+    margin: 0 0 4px 0;
+  }
+
+  &__info {
+    font-size: 13px;
+    color: $color-text-secondary;
+    margin: 0 0 16px 0;
+  }
+}

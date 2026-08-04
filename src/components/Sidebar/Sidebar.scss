@@ -1,0 +1,85 @@
+@use "../../styles/variables" as *;
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -320px;
+  width: 280px;
+  height: 100vh;
+  padding: 24px 20px;
+  background: $color-bg-primary;
+  border-left: 1px solid $color-border;
+  z-index: 10;
+  overflow-y: auto;
+  transition: right 0.3s ease;
+
+  &--active {
+    right: 0;
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: 600;
+    color: $color-text-primary;
+    margin: 0 0 20px 0;
+  }
+
+  &__btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    color: $color-text-primary;
+    cursor: pointer;
+    padding: 4px;
+    transition: $transition-default;
+
+    &:hover {
+      color: $color-text-secondary;
+    }
+
+    svg {
+      display: block;
+      width: 24px;
+      height: 24px;
+      fill: currentColor;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__form-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: $color-text-secondary;
+    margin: 0 0 4px 0;
+  }
+
+  &__form-celius,
+  &__form-faren {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__form-label {
+    font-size: 16px;
+    font-weight: 500;
+    color: $color-text-primary;
+    cursor: pointer;
+    user-select: none;
+    margin-right: 10px;
+  }
+
+  &__form-input {
+    width: 18px;
+    height: 18px;
+    accent-color: $color-accent-blue;
+    cursor: pointer;
+  }
+}

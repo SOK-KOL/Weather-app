@@ -1,0 +1,131 @@
+@use "../../styles/variables" as *;
+
+.current-weather {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 0 30px;
+
+  &__inner {
+    background-color: $color-bg-card;
+    backdrop-filter: blur(10px);
+    border-radius: $radius-card;
+    border: 1px solid $color-border;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .current-weather {
+    &__content {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: 100%;
+    }
+
+    &__left {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    &__content-map {
+      width: 32px;
+      height: 32px;
+      fill: $color-text-secondary;
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    &-text {
+      font-size: 14px;
+      color: $color-text-secondary;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    &-city {
+      font-size: 28px;
+      color: $color-text-primary;
+      margin: 0;
+    }
+
+    &-meteo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 16px;
+      color: $color-text-secondary;
+      margin: 0;
+    }
+  }
+
+  &__temp {
+    text-align: right;
+    padding: 0;
+
+    &-text {
+      font-size: 64px;
+      font-weight: 700;
+      line-height: 1;
+      color: $color-text-primary;
+      margin: 0;
+    }
+
+    &-feels {
+      font-size: 14px;
+      color: $color-text-secondary;
+      margin: 0;
+      padding-top: 4px;
+
+      &--golden {
+        color: $color-accent-yellow;
+      }
+    }
+  }
+
+  &__details {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 15px;
+    width: 100%;
+    padding: 0;
+  }
+
+  &__element {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 12px 16px;
+    background-color: rgba(255, 255, 255, 0.04);
+    border-radius: $radius-button;
+
+    svg {
+      width: 30px;
+      height: 30px;
+      fill: currentColor;
+    }
+
+    &-text {
+      font-size: 13px;
+      color: $color-text-secondary;
+      margin: 0;
+    }
+
+    &-info {
+      font-size: 15px;
+      color: $color-text-primary;
+      font-weight: 700;
+      margin: 0;
+    }
+  }
+}

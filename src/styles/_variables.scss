@@ -1,0 +1,56 @@
+// ===== Шрифты =====
+$ff-main:
+  "Inter",
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  Roboto,
+  sans-serif;
+$ff-mono: "SF Mono", "Fira Code", monospace;
+
+// ===== Основные цвета (тёмная тема) =====
+$color-bg-primary: #0b1a2e; // основной фон страницы
+$color-bg-card: rgba(255, 255, 255, 0.06); // фон карточек (стекло)
+$color-bg-card-hover: rgba(255, 255, 255, 0.1);
+$color-black: #0b1a2e; // тёмный фон (можно заменить на #0a0f1a)
+$color-white-smoke: #f8f9fa; // светлый текст
+$color-button-black: rgba(0, 0, 0, 0.764); //темный цвет кнопки
+$color-input-halfWhite: rgba(
+  255,
+  255,
+  255,
+  0.06
+); // полупрозрачный фона поля ввода
+
+// ===== Текст =====
+$color-text-primary: #ffffff;
+$color-text-secondary: #94a3b8; // для описаний, второстепенных данных
+$color-text-muted: #64748b; // для наименований параметров
+
+// ===== Акценты =====
+$color-accent-blue: #275db5; // основная синяя кнопка
+$color-accent-blue-hover: #2563eb;
+$color-accent-yellow: #f59e0b; // жёлтый для иконок солнца, акцентов
+$color-accent-yellow-hover: #d97706;
+
+// ===== Состояния =====
+$color-success: #22c55e; // зелёный (например, для "онлайн")
+$color-error: #ef4444; // красный для ошибок
+$color-warning: #f59e0b; // жёлтый для предупреждений
+
+// ===== Границы и тени =====
+$color-border: rgba(255, 255, 255, 0.1);
+$color-border-focus: rgba(59, 130, 246, 0.5);
+$shadow-card: 0 8px 32px rgba(0, 0, 0, 0.3);
+$shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+// ===== Размеры и отступы =====
+$radius-card: 20px;
+$radius-button: 8px;
+$radius-input: 8px;
+$transition-default: 0.2s ease;
+
+// ===== Брейкпоинты (адаптивность) =====
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
