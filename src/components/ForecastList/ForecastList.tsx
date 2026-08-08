@@ -68,6 +68,7 @@ function ForecastList({
           });
           const date = new Date(day.date).toLocaleDateString("ru-RU");
           const wind = (day.day.maxwind_kph / 3.6).toFixed(1);
+          const windWay =  getWindWays(day.hour[12].wind_dir);
           return (
             <li
               key={day.date}
@@ -90,6 +91,8 @@ function ForecastList({
                 {"\u00B0"}
               </p>
               <div className="forecast-list__element-wind">
+                <p className="forecast-list__element-wind-title">Ветер:</p>
+                <div className="forecast-list__element-wind-container">
                 <div className="forecast-list__element-wind-speed">
                   <Wind />
                   <span className="forecast-list__element-wind-text">
@@ -97,10 +100,11 @@ function ForecastList({
                   </span>
                 </div>
                 <div className="forecast-list__element-wind-way">
-                  <WindSock />
+                  <windWay.icon width={18} height={18} />
                   <span className="forecast-list__element-wind-text">
-                    {getWindWays(day.hour[12].wind_dir)}
+                   {forecastDays ===5? windWay.text : windWay.shortText }
                   </span>
+                </div>
                 </div>
               </div>
             </li>
