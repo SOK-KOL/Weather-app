@@ -12,8 +12,8 @@ type AppContextType = {
   refetch: () => void;
   cityId: any;
   setCityId: (id: any) => void;
-  scale: string;
-  setScale: (scale: string) => void;
+  scale: Scale;
+  setScale: (scale: Scale) => void;
   pressureUnits: string;
   setPressureUnits: (pressure: string) => void;
   forecastDays: any;
@@ -26,7 +26,7 @@ const AppContext = createContext<AppContextType | null>(null);
 
 export function AppProvider({ children }: { children: React.ReactNode }) {
   const { isOpen, open, close } = useSidebar();
-  const [scale, setScale] = useState<string>("C");
+  const [scale, setScale] = useState<Scale>("C");
   const [pressureUnits, setPressureUnits] = useState<string>("hydrargyrum");
 
   const {

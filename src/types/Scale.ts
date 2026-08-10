@@ -1,2 +1,2 @@
-export type Scale = {`C`|`F`};
+export type Scale = "C" | "F";
 

@@ -1,34 +1,56 @@
-# React + TypeScript + Vite
+ # Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Веб-приложение для просмотра текущей погоды и прогноза по выбранному городу.
 
-Currently, two official plugins are available:
+## Возможности
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- поиск и выбор города;
+- текущая температура, состояние погоды и основные показатели;
+- прогноз на срок до 5 дней;
+- подробная страница с графиками температуры, влажности и ветра;
+- таблица прогноза по времени суток;
+- переключение единиц температуры и давления;
+- обновление данных и обработка ошибок API.
 
-## React Compiler
+## Стек
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- React 19 и TypeScript;
+- Vite;
+- React Router;
+- TanStack Query;
+- Recharts;
+- Sass;
+- WeatherAPI.
 
-Note: This will impact Vite dev & build performances.
+## Запуск
 
-## Expanding the Oxlint configuration
+Для работы приложения нужен API-ключ [WeatherAPI](https://www.weatherapi.com/).
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+1. Установите зависимости:
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+	```bash
+	npm install
+	```
+
+2. Создайте в корне проекта файл `.env` и добавьте ключ:
+
+	```env
+	VITE_WEATHER_API_KEY=your_api_key
+	```
+
+3. Запустите сервер разработки:
+
+	```bash
+	npm run dev
+	```
+
+После запуска приложение будет доступно по адресу, который покажет Vite в терминале.
+
+## Доступные команды
+
+```bash
+npm run dev      # запуск в режиме разработки
+npm run build    # проверка типов и production-сборка
+npm run lint     # проверка кода Oxlint
+npm run preview  # просмотр production-сборки
 ```
-
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.

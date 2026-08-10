@@ -27,7 +27,7 @@ function Sidebar({ onClose, isOpen }: SidebarProps) {
             name="scale"
             checked={scale === "C"}
             id="Celius"
-            onChange={(e) => setScale(e.target.value)}
+            onChange={(e) => setScale(e.target.value as "C" | "F")}
           />
         </div>
         <div className="sidebar__form-choice">
@@ -41,7 +41,7 @@ function Sidebar({ onClose, isOpen }: SidebarProps) {
             id="Faren"
             value={"F"}
             checked={scale === "F"}
-            onChange={(e) => setScale(e.target.value)}
+            onChange={(e) => setScale(e.target.value as "C" | "F")}
           />
         </div>
         <p className="sidebar__form-title">Единицы давления:</p>

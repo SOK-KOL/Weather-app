@@ -29,27 +29,31 @@ function SearchBar({ onCityChange, error }: SearchBarProps) {
 
   //Делаем подсказки по набору города
   const fetchSuggestions = async (query: string) => {
-    if (query.length < 1) {
+    const trimmedQuery = query.trim();
+    if (trimmedQuery.length < 1) {
       return [];
     }
     const response = await fetch(
-      `https://api.weatherapi.com/v1/search.json?key=${KEY}&q=${query}&lang=ru`,
+      `https://api.weatherapi.com/v1/search.json?key=${KEY}&q=${encodeURIComponent(trimmedQuery)}&lang=ru`,
     );
 
-    console.log(response.json());
+    if (!response.ok) {
+      return [];
+    }
+
     return response.json();
   };
 
   const { data: suggestions = [] } = useQuery({
     queryKey: ["suggestions", search],
     queryFn: () => fetchSuggestions(search),
-    enabled: search.length >= 0,
+    enabled: search.trim().length >= 1,
     staleTime: 50,
   });
 
   // Фильтрация не валидных подсказок
   const validSuggestions = suggestions.filter(
-    (city: any) => city.region && city.url,
+    (city: any) => city.name && city.url,
   );
 
   const displaySuggestions =
