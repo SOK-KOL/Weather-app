@@ -33,9 +33,10 @@ function SearchBar({ onCityChange, error }: SearchBarProps) {
       return [];
     }
     const response = await fetch(
-      `https://api.weatherapi.com/v1/search.json?key=${KEY}&q=${query}`,
+      `https://api.weatherapi.com/v1/search.json?key=${KEY}&q=${query}&lang=ru`,
     );
 
+    console.log(response.json());
     return response.json();
   };
 

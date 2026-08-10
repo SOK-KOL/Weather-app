@@ -4,15 +4,15 @@ const getNormalCity = (): string => {
   return localStorage.getItem("city") || "Москва";
 };
 
-export const searchCity = async (query: string) => {
+export const searchCity = async (query: number) => {
   try {
     const response = await fetch(
-      `https://api.weatherapi.com/v1/search.json?key=${KEY}&q=${query}&lang=ru`,
+      `https://api.weatherapi.com/v1/search.json?key=${KEY}&q=id:${query}`,
     );
     if (!response.ok) {
       throw new Error("Ошибка поиска");
     }
-
+    console.log(await response.json());
     return await response.json();
   } catch (error) {
     console.error("Ошибка поиска города:", error);
@@ -36,7 +36,9 @@ export const fetchWeather = async (cityId: number, days?: number) => {
     }
 
     const data = await response.json();
-    return { data, error: null };
+    data.name
+  searchCity(cityId);
+    return { data, error: null,  };
   } catch (error) {
     console.error("Ошибка запроса:", error);
     const fallbackCity = getNormalCity();

@@ -31,7 +31,7 @@ const windWays: Record<string, WindItem> = {
   W: { shortText: "З", icon: LeftArrow, text: "Западный" },
   WNW: { shortText: "С-З", icon: UpLeftArrow, text:"Северо-западный" },
   NW: { shortText: "С-З", icon: UpLeftArrow, text:"Северо-западный"},
-  NNW: { shortText: "С-З", icon: UpArrow, text:"Северо-западный" },
+  NNW: { shortText: "С-З", icon: UpLeftArrow, text:"Северо-западный" },
 };
 
 export const getWindWays = (way: string): WindItem => {
