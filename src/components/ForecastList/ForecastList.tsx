@@ -1,10 +1,9 @@
 import "../ForecastList/ForecastList.scss";
 import { WeatherSvg } from "weather-icons-animated";
-import type { ForecastDay, NowWeather } from "../../types";
+import type { NowWeather } from "../../types";
 import type { Scale } from "../../types/Scale";
 import { getStatusWeather } from "../../utils/WeatherStatus";
 import Wind from "../../assets/icons/wind.svg?react";
-import WindSock from "../../assets/icons/windSock.svg?react";
 import { getWindWays } from "../../utils/WeatherWay";
 
 interface ForecastProps {
