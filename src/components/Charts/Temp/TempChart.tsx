@@ -1,3 +1,4 @@
+
 import type { TempData } from "../../../types/chartsData";
 
 import "../Chart.scss";
