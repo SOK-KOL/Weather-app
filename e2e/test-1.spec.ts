@@ -20,7 +20,7 @@ test('Тест кнопки обновить на перезагрузку ст�
 test('Тест обновления города', async ({page}) => {
   await expect(page.locator('.current-weather__info-city')).toBeVisible()
   const oldCityText =  await page.locator('.current-weather__info-city').textContent();
-  const newCityText = "Sochi";
+  const newCityText = "Idlib";
 
   await page.getByRole('textbox', { name: 'Введите город' }).click();
   await page.getByRole('textbox', { name: 'Введите город' }).fill(`${newCityText}`);
@@ -52,6 +52,8 @@ await page.getByRole('link', { name: 'Подробный прогноз' }).clic
 await expect(page).toHaveURL('http://localhost:5173/details')
 });
 });
+
+
 
 
 

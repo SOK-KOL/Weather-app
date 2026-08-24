@@ -6,7 +6,7 @@ import type { NowWeather } from "../../types";
 export default function useWeather() {
   const [cityId, setCityId] = useState<number>(() => {
     const saved = localStorage.getItem("cityId");
-    return saved ? Number(saved) : 1;
+    return saved ? Number(saved) : 2145091;
   });
   const [forecastDays, setForecastDays] = useState<number>(5);
 

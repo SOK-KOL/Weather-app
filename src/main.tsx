@@ -10,7 +10,7 @@ const queryClient = new QueryClient();
 createRoot(document.getElementById("root")!).render(
   <QueryClientProvider client={queryClient}>
     <AppProvider>
-      <BrowserRouter>
+      <BrowserRouter basename="/Weather-app">
         <App />
       </BrowserRouter>
     </AppProvider>

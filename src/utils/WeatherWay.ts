@@ -15,23 +15,22 @@ interface WindItem {
 }
 
 const windWays: Record<string, WindItem> = {
-  N: { shortText: "С", icon: UpArrow, text: "Северный" },
-  NNE: { shortText: "С-В", icon: UpRightArrow, text:"Северо-Восточный" },
-  NE: { shortText: "С-В", icon: UpRightArrow, text:"Северо-Восточный"},
-  ENE: { shortText: "С-В", icon: RightArrow, text:"Северо-Восточный" },
-  E: { shortText: "В", icon: RightArrow, text:"Восточный" },
-  ESE: { shortText: "Ю-В", icon: DownRightArrow,text:"Юго-Восточный" },
-  SE: { shortText: "Ю-В", icon: DownRightArrow ,text:"Юго-Восточный"},
-  SSE: { shortText: "Ю-В", icon: DownArrow,  text:"Юго-Восточный"
-   },
-  S: { shortText: "Ю", icon: DownArrow , text: "Южный"},
-  SSW: { shortText: "Ю-З", icon: DownLeftArrow,text: "Юго-Западный" },
-  SW: { shortText: "Ю-З", icon: DownLeftArrow,text: "Юго-Западный" },
-  WSW: { shortText: "Ю-З", icon: LeftArrow, text: "Юго-Западный" },
-  W: { shortText: "З", icon: LeftArrow, text: "Западный" },
-  WNW: { shortText: "С-З", icon: UpLeftArrow, text:"Северо-западный" },
-  NW: { shortText: "С-З", icon: UpLeftArrow, text:"Северо-западный"},
-  NNW: { shortText: "С-З", icon: UpLeftArrow, text:"Северо-западный" },
+ N: { shortText: "С", icon: DownArrow, text: "Северный" },
+  NNE: { shortText: "С-В", icon: DownLeftArrow, text: "Северо-Восточный" },
+  NE: { shortText: "С-В", icon: DownLeftArrow, text: "Северо-Восточный" },
+  ENE: { shortText: "С-В", icon: DownLeftArrow, text: "Северо-Восточный" },
+  E: { shortText: "В", icon: LeftArrow, text: "Восточный" },
+  ESE: { shortText: "Ю-В", icon: UpLeftArrow, text: "Юго-Восточный" },
+  SE: { shortText: "Ю-В", icon: UpLeftArrow, text: "Юго-Восточный" },
+  SSE: { shortText: "Ю-В", icon: UpLeftArrow, text: "Юго-Восточный" },
+  S: { shortText: "Ю", icon: UpArrow, text: "Южный" },
+  SSW: { shortText: "Ю-З", icon: UpRightArrow, text: "Юго-Западный" },
+  SW: { shortText: "Ю-З", icon: UpRightArrow, text: "Юго-Западный" },
+  WSW: { shortText: "Ю-З", icon: UpRightArrow, text: "Юго-Западный" },
+  W: { shortText: "З", icon: RightArrow, text: "Западный" },
+  WNW: { shortText: "С-З", icon: DownRightArrow, text: "Северо-западный" },
+  NW: { shortText: "С-З", icon: DownRightArrow, text: "Северо-западный" },
+  NNW: { shortText: "С-З", icon: DownRightArrow, text: "Северо-западный" },
 };
 
 export const getWindWays = (way: string): WindItem => {
