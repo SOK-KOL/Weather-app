@@ -99,9 +99,9 @@ function ForecastList({
                   </span>
                 </div>
                 <div className="forecast-list__element-wind-way">
-                  <windWay.icon width={18} height={18} />
+                  <windWay.icon width={20} height={20} />
                   <span className="forecast-list__element-wind-text">
-                   {forecastDays ===5? windWay.text : windWay.shortText }
+                   {windWay.shortText }
                   </span>
                 </div>
                 </div>

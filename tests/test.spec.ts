@@ -34,7 +34,7 @@ test('Тест обновления города', async ({page}) => {
 test("Тест на абракадабру в поиске", async ({page}) => {
   await expect(page.locator('.current-weather__info-city')).toBeVisible()
   const oldCity = await page.locator('.current-weather__info-city').textContent();
-   const somethingText = "sngoiernoernoernomtreogne";
+   const somethingText = "траьпр";
 
   await page.getByRole('textbox', { name: 'Введите город' }).click();
   await page.getByRole('textbox', { name: 'Введите город' }).fill(`${somethingText}`);
