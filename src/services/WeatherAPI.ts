@@ -9,7 +9,7 @@ const getNormalCity = (): string => {
 export const searchCity = async (query: number | string) => {
   try {
     const response = await fetch(
-      `https://api.weatherapi.com/v1/search.json?key=${KEY}&q=${typeof query === "number" ? `id:${query}` : encodeURIComponent(query)}`,
+      `https://api.weatherapi.com/v1/search.json?key=${KEY}&q=id:${query}`,
     );
     if (!response.ok) {
       throw new Error("Ошибка поиска");
@@ -27,7 +27,7 @@ export const fetchWeather = async (
 ): Promise<WeatherResponse> => {
   try {
     const response = await fetch(
-      `https://api.weatherapi.com/v1/forecast.json?key=${KEY}&q=${typeof cityId === "number" ? `id:${cityId}` : encodeURIComponent(cityId)}&days=${days}&lang=ru`,
+      `https://api.weatherapi.com/v1/forecast.json?key=${KEY}&q=id:${cityId}&days=${days}&lang=ru`,
     );
 
     if (!response.ok) {
@@ -41,6 +41,7 @@ export const fetchWeather = async (
 
     const data = await response.json();
     return { data, error: null };
+    
   } catch (error) {
     console.error("Ошибка запроса:", error);
     const fallbackCity = getNormalCity();
