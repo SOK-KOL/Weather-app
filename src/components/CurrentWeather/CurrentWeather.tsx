@@ -44,7 +44,7 @@ function CurrentWeather({ weatherData, scale, pressure }: CurrentWeatherProps) {
               </h2>
               <div className="current-weather__info-meteo">
                 <span>{weatherData.current.condition.text}</span>
-                <WeatherSvg state={status} width={30} height={30} />
+                <WeatherSvg className="current-weather__info-icon" state={status} width={30} height={30} />
               </div>
             </div>
           </div>
@@ -69,6 +69,9 @@ function CurrentWeather({ weatherData, scale, pressure }: CurrentWeatherProps) {
                 {"\u00B0"}
               </span>
             </p>
+          </div>
+          <div className="current-weather__right">
+             <Region className="current-weather__right-image" />
           </div>
         </div>
 

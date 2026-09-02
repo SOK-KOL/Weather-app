@@ -31,12 +31,11 @@ $color-text-muted: #64748b; // для наименований параметр�
 $color-accent-blue: #275db5; // основная синяя кнопка
 $color-accent-blue-hover: #2563eb;
 $color-accent-yellow: #f59e0b; // жёлтый для иконок солнца, акцентов
-$color-accent-yellow-hover: #d97706;
+
 
 // ===== Состояния =====
-$color-success: #22c55e; // зелёный (например, для "онлайн")
 $color-error: #ef4444; // красный для ошибок
-$color-warning: #f59e0b; // жёлтый для предупреждений
+
 
 // ===== Границы и тени =====
 $color-border: rgba(255, 255, 255, 0.1);
@@ -51,6 +50,27 @@ $radius-input: 8px;
 $transition-default: 0.2s ease;
 
 // ===== Брейкпоинты (адаптивность) =====
-$breakpoint-mobile: 480px;
+$breakpoint-mobile: 375px;
 $breakpoint-tablet: 768px;
-$breakpoint-desktop: 1024px;
+$breakpoint-desktop: 1280px;
+
+
+@mixin mobile {
+  @media (max-width: #{$breakpoint-mobile}) {
+    @content;
+  }
+}
+
+
+@mixin tablet {
+  @media (max-width: #{$breakpoint-tablet}) {
+    @content;
+  }
+}
+
+
+@mixin desktop {
+  @media (max-width: #{$breakpoint-desktop}) {
+    @content;
+  }
+}
