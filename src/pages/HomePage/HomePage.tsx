@@ -43,7 +43,7 @@ function HomePage() {
 
   return (
     <div className="weather">
-      <div className="container">
+  
         <SearchBar onCityChange={handleCityChange} error={error} />
 
         {isFetching ? (
@@ -66,7 +66,7 @@ function HomePage() {
             </Link>
           </>
         )}
-      </div>
+
     </div>
   );
 }

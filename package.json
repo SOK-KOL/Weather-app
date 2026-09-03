@@ -21,6 +21,7 @@
     "react-router-dom": "^7.18.1",
     "recharts": "^3.9.2",
     "selenium-webdriver": "^4.47.0",
+    "swiper": "^14.2.0",
     "weather-icons-animated": "^2.0.1"
   },
   "devDependencies": {

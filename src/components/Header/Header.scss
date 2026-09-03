@@ -3,11 +3,12 @@
   width: 100%;
   padding: 16px 20px;
   background-color: rgb($color-bg-primary, 1);
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
   z-index: 9;
+  margin-bottom: 40px;
   &__inner {
     display: flex;
     justify-content: space-between;
