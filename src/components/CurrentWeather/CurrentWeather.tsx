@@ -10,10 +10,10 @@ import { useEffect } from "react";
 import { getStatusWeather } from "../../utils/WeatherStatus";
 import type { Scale } from "../../types/Scale";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, EffectFade } from "swiper/modules";
-import "./Swiper.scss"
+import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import "./Swiper.scss"
 interface CurrentWeatherProps {
   weatherData: NowWeather;
   scale: Scale;
@@ -81,7 +81,7 @@ function CurrentWeather({ weatherData, scale, pressure }: CurrentWeatherProps) {
 
         <Swiper
         modules={[Pagination,]}
-        pagination={{ clickable: true }}
+        pagination={{ clickable: true } }
         slidesPerView={1} spaceBetween={15} breakpoints={{
    0: {
       slidesPerView: 1,
