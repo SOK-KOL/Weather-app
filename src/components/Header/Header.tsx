@@ -23,7 +23,7 @@ function Header({ onRefresh, onOpenSidebar }: HeaderProps) {
         </div>
 
         <div className="header-right">
-          <button onClick={() => onRefresh()} className="header-right__btn">
+          <button onClick={() => onRefresh()} className="header-right__btn header-right__btn--update">
             <Refresh  className="header-right__btn-icon"/>
             <span className="header-right__btn-text">Обновить</span>
           </button>
