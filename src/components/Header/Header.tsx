@@ -16,7 +16,7 @@ function Header({ onRefresh, onOpenSidebar }: HeaderProps) {
     <div className="header">
       <div className="header__inner">
         <div className="header-left">
-          <WeatherSvg state="sunny" width={50} height={50} />
+          <WeatherSvg className="header-left__icon" state="sunny" width={50} height={50} />
           <Link className="header-left__title" to="/">
             Погодный гид
           </Link>
@@ -24,14 +24,14 @@ function Header({ onRefresh, onOpenSidebar }: HeaderProps) {
 
         <div className="header-right">
           <button onClick={() => onRefresh()} className="header-right__btn">
-            <Refresh />
+            <Refresh  className="header-right__btn-icon"/>
             <span className="header-right__btn-text">Обновить</span>
           </button>
           <button
             onClick={onOpenSidebar}
             className="header-right__btn header-right__btn--settings"
           >
-            <Settings />
+            <Settings  className="header-right__btn-icon" />
           </button>
         </div>
       </div>

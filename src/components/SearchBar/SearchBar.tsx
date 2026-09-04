@@ -101,6 +101,7 @@ function SearchBar({ onCityChange, error }: SearchBarProps) {
             <span className="search-bar__input-error show">{error}</span>
           )}
           <input
+          name="search city"
             type="text"
             className="search-bar__input"
             placeholder="Введите город"
