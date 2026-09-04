@@ -10,9 +10,9 @@ $ff-mono: "SF Mono", "Fira Code", monospace;
 
 // ===== Основные цвета (тёмная тема) =====
 $color-bg-primary: #0b1a2e; // основной фон страницы
-$color-bg-card: rgba(255, 255, 255, 0.06); // фон карточек (стекло)
+$color-bg-card: rgba(255, 255, 255, 0.06); // фон карточек 
 $color-bg-card-hover: rgba(255, 255, 255, 0.1);
-$color-black: #0b1a2e; // тёмный фон (можно заменить на #0a0f1a)
+$color-black: #0b1a2e; // тёмный фон 
 $color-white-smoke: #f8f9fa; // светлый текст
 $color-button-black: rgba(0, 0, 0, 0.764); //темный цвет кнопки
 $color-input-halfWhite: rgba(
@@ -24,8 +24,8 @@ $color-input-halfWhite: rgba(
 
 // ===== Текст =====
 $color-text-primary: #ffffff;
-$color-text-secondary: #94a3b8; // для описаний, второстепенных данных
-$color-text-muted: #64748b; // для наименований параметров
+$color-text-secondary: #94a3b8;
+$color-text-muted: #64748b; 
 
 // ===== Акценты =====
 $color-accent-blue: #275db5; // основная синяя кнопка
