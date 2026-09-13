@@ -1,5 +1,5 @@
 import "./CurrentWeather.scss";
-import { WeatherSvg } from "weather-icons-animated";
+import { WeatherSvg   } from "weather-icons-animated";
 import Wind from "../../assets/icons/wind.svg?react";
 import Humidity from "../../assets/icons/humidity.svg?react";
 import Pressure from "../../assets/icons/pressure.svg?react";
@@ -9,19 +9,17 @@ import type { NowWeather } from "../../types";
 import { useEffect } from "react";
 import { getStatusWeather } from "../../utils/WeatherStatus";
 import type { Scale } from "../../types/Scale";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/pagination";
-import "./Swiper.scss"
+
+
+
 interface CurrentWeatherProps {
   weatherData: NowWeather;
   scale: Scale;
   pressure: string;
 }
 
+
 function CurrentWeather({ weatherData, scale, pressure }: CurrentWeatherProps) {
-  console.log(weatherData);
   const windSpeedMPS: string = (weatherData.current.wind_kph / 3.6).toFixed(1);
   const pressureMmHg: number = Math.round(
     weatherData.current.pressure_mb * 0.750062,
@@ -29,13 +27,13 @@ function CurrentWeather({ weatherData, scale, pressure }: CurrentWeatherProps) {
   const pressureMb = weatherData.current.pressure_mb;
   const status = getStatusWeather(weatherData.current.condition.code);
 
-  // Сохранение в localStorage
   useEffect(() => {
     const fullCity = `${weatherData.location.name}, ${weatherData.location.country}, ${weatherData.location.region}`;
     localStorage.setItem("city", fullCity);
   }, [weatherData.location.name]);
-
+  
   return (
+    
     <div className="current-weather">
       <section className="current-weather__inner">
         <div className="current-weather__content">
@@ -48,7 +46,12 @@ function CurrentWeather({ weatherData, scale, pressure }: CurrentWeatherProps) {
               </h2>
               <div className="current-weather__info-meteo">
                 <span>{weatherData.current.condition.text}</span>
-                <WeatherSvg className="current-weather__info-icon" state={status} width={30} height={30} />
+                <WeatherSvg
+                  className="current-weather__info-icon"
+                  state={status}
+                  width={30}
+                  height={30}
+                />
               </div>
             </div>
           </div>
@@ -59,7 +62,6 @@ function CurrentWeather({ weatherData, scale, pressure }: CurrentWeatherProps) {
                   ? weatherData.current.temp_c
                   : weatherData.current.temp_f,
               )}
-
               {"\u00B0"}
             </h2>
             <p className="current-weather__temp-feels">
@@ -75,61 +77,44 @@ function CurrentWeather({ weatherData, scale, pressure }: CurrentWeatherProps) {
             </p>
           </div>
           <div className="current-weather__right">
-             <Region className="current-weather__right-image" />
+            <WeatherSvg
+              className="current-weather__right-image"
+              state={status}
+            />
           </div>
         </div>
 
-        <Swiper
-        modules={[Pagination,]}
-        pagination={{ clickable: true } }
-        slidesPerView={1} spaceBetween={15} breakpoints={{
-   0: {
-      slidesPerView: 1,
-      loop: true
-     
-    },
-    481: {
-      slidesPerView: 2,     
-      loop: false
-        
-    },
-    
-    769: {
-      slidesPerView: 4,      
-      
-    }
-  }} 
-        className="current-weather__details">
-          <SwiperSlide className="current-weather__element">
+        <ul className="current-weather__details">
+          <li className="current-weather__element">
             <Humidity />
             <p className="current-weather__element-text">Влажность</p>
             <p className="current-weather__element-info">
               {weatherData.current.humidity}%
             </p>
-          </SwiperSlide>
+          </li>
 
-          <SwiperSlide className="current-weather__element">
+          <li className="current-weather__element">
             <Wind />
             <p className="current-weather__element-text">Ветер</p>
-            <p className="current-weather__element-info">{windSpeedMPS} м/c</p>
-          </SwiperSlide>
-          <SwiperSlide className="current-weather__element">
+            <p className="current-weather__element-info">{windSpeedMPS} м/с</p>
+          </li>
+          <li className="current-weather__element">
             <Pressure />
             <p className="current-weather__element-text">Давление</p>
             <p className="current-weather__element-info">
               {pressure === "hydrargyrum"
-                ? pressureMmHg + " мм. рт. ст."
+                ? pressureMmHg + " мм"
                 : pressureMb + " гПа"}
             </p>
-          </SwiperSlide>
-          <SwiperSlide className="current-weather__element">
+          </li>
+          <li className="current-weather__element">
             <Visibility />
             <p className="current-weather__element-text">Видимость</p>
             <p className="current-weather__element-info">
               {weatherData.current.vis_km} км
             </p>
-          </SwiperSlide>
-        </Swiper>
+          </li>
+        </ul>
       </section>
     </div>
   );

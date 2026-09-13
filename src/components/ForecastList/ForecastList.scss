@@ -1,7 +1,9 @@
 @use "../../styles/variables" as *;
+
 .forecast {
   justify-content: center;
   align-items: center;
+
   &__form {
     display: flex;
     align-items: center;
@@ -34,9 +36,7 @@
       cursor: pointer;
       font-size: 14px;
       font-weight: 500;
-      transition:
-        background-color 0.3s,
-        color 0.3s;
+      transition: background-color 0.3s, color 0.3s;
 
       &:hover {
         background-color: #0056b3;
@@ -60,7 +60,7 @@
     &__element {
       background-color: $color-bg-card;
       border-radius: $radius-button;
-      padding: 10px;
+      padding: 16px 12px;
       width: 420px;
       display: flex;
       flex-direction: column;
@@ -68,6 +68,7 @@
 
       &--small {
         width: 140px;
+        padding: 12px 8px;
       }
 
       &-day {
@@ -75,29 +76,33 @@
         color: $color-text-primary;
         font-weight: 700;
         text-transform: uppercase;
+        font-size: 16px;
       }
+
       &-date {
         margin: 0 0 10px;
         color: $color-text-secondary;
+        font-size: 13px;
       }
-      &-status {
-        color: $color-text-secondary;
-        font-size: 14px;
-        margin: 0 0 4px;
-        text-align: center;
 
-        &--small {
-          min-height: 48px;
+      &-icon {
+        display: block;
+        width: 40px;
+        height: 40px;
+        flex-shrink: 0;
+
+        svg {
+          overflow: visible !important;
+          display: block;
+          width: 100%;
+          height: 100%;
         }
       }
+
       &-temp {
         color: $color-text-primary;
         font-size: 16px;
         margin: 0 0 15px;
-      }
-      svg {
-        width: 40px;
-        height: 40px;
       }
 
       &-wind {
@@ -107,40 +112,146 @@
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
+        width: 100%;
 
-        &-title{
-          font-size: 14px;
+        &-title {
+          font-size: 13px;
           margin: 0 auto;
           color: $color-text-secondary;
         }
-        &-container{
+
+        &-container {
           display: flex;
           gap: 17px;
-          
         }
 
         &-speed {
           display: flex;
           align-items: center;
           flex-direction: column;
-          gap: 10px;
+          gap: 6px;
+
+          svg {
+            fill: currentColor;
+            width: 18px;
+            height: 18px;
+          }
         }
-        svg {
-          fill: currentColor;
-          width: 18px;
-          height: 18px;
-        }
+
         &-text {
-          font-size: 15px;
+          font-size: 13px;
+          color: $color-text-secondary;
         }
 
         &-way {
           display: flex;
-          gap: 10px;
+          gap: 6px;
           align-items: center;
           flex-direction: column;
+
+          svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+          }
         }
       }
     }
+  }
+}
+
+@media (max-width: 768px) {
+  .forecast {
+
+    &__form {
+      justify-content: center;
+      margin-bottom: 16px;
+
+      &-title {
+        font-size: 13px;
+      }
+
+      &-label {
+        padding: 6px 14px;
+        font-size: 13px;
+      }
+    }
+
+    &-list {
+      display: none;
+    }
+
+    &-mobile {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    &-table {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      overflow: hidden;
+
+      &__header {
+        display: flex;
+      justify-content: space-around;
+        background-color: $color-bg-card;
+        padding: 10px 8px;
+        border-bottom: 1px solid $color-bg-card;
+
+        &-cell {
+          text-align: center;
+          font-size: 12px;
+          font-weight: 600;
+          color: $color-text-secondary;
+          text-transform: uppercase;
+        }
+      }
+
+      &__row {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        padding: 10px 8px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        &-cell {
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+
+          &--day {
+            font-size: 13px;
+            font-weight: 600;
+            color: $color-text-primary;
+          }
+
+          &--weather {
+            font-size: 12px;
+            color: $color-text-secondary;
+          }
+
+          &--temp {
+            font-size: 14px;
+            font-weight: 500;
+            color: $color-text-primary;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 769px) {
+  .forecast-mobile {
+    display: none;
   }
 }

@@ -6,6 +6,7 @@ import {
   Tooltip,
   XAxis,
   YAxis,
+  Brush
 } from "recharts";
 
 interface WindChartPRops {
@@ -35,6 +36,7 @@ function WindChart({ wind }: WindChartPRops) {
             tick={{ fontSize: 16, fontWeight: 700 }}
             axisLine={{ strokeWidth: 3 }}
             stroke="#10e28e"
+            width={"auto"}
           />
           <Tooltip
             formatter={(value) => [`Ветер: ${value} М/c `]}
@@ -60,6 +62,14 @@ function WindChart({ wind }: WindChartPRops) {
             name="Ветер"
             dot={{ fill: "#0bf50b", r: 5 }}
           />
+          <Brush 
+                        dataKey="day" 
+                        height={30} 
+                        stroke="#82ca9d" 
+                        fill="#1d3037"
+                     startIndex={0}
+                     endIndex={wind.length > 5 ? 7 : 4}
+                      />
         </AreaChart>
       </ResponsiveContainer>
     </div>

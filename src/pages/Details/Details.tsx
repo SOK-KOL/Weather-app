@@ -61,7 +61,6 @@ function Details() {
 
   return (
     <div className="details">
-      <div className="container">
         <BackButton />
         <p className="details__text">Подробный прогноз</p>
         <div className="details__location">
@@ -96,7 +95,7 @@ function Details() {
           </>
         )}
       </div>
-    </div>
+
   );
 }
 

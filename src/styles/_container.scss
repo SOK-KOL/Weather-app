@@ -1,5 +1,15 @@
+@use "variables" as *;
+
 .container {
   max-width: 1260px;
   margin: 0 auto;
   padding: 0 30px;
+
+  @include tablet {
+    padding:  0 15px;
+  }
+
+  @include mobile {
+    padding: 0 10px;
+  }
 }
