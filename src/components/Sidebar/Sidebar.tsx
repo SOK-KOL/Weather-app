@@ -1,15 +1,26 @@
 import "./Sidebar.scss";
 import Close from "../../assets/icons/close.svg?react";
 import { useAppContext } from "../../context/AppContext";
+import { useEffect, useRef } from "react";
 interface SidebarProps {
   onClose: () => void;
   isOpen: boolean;
 }
 
 function Sidebar({ onClose, isOpen }: SidebarProps) {
+  const menu = useRef<HTMLElement>(null);
+  useEffect(()=> {
+    const clickOutside = (e: MouseEvent) => {
+      if( isOpen && menu.current?.contains && !menu.current.contains(e.target as Node) ){
+      onClose();
+      }
+    }
+    document.addEventListener('mousedown', clickOutside);
+  },[isOpen])
+  
   const { scale, setScale, pressureUnits, setPressureUnits } = useAppContext();
   return (
-    <aside className={`sidebar ${isOpen ? `sidebar--active` : ``} `}>
+    <aside ref={menu} className={`sidebar ${isOpen ? `sidebar--active` : ``} `}>
       <h2 className="sidebar__title">Настройки</h2>
       <button className="sidebar__btn" onClick={onClose}>
         <Close />

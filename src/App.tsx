@@ -9,13 +9,15 @@ function App() {
   const { openSidebar, refetch, isSidebarOpen, closeSidebar } = useAppContext();
 
   return (
+    <div>
+    <Header isOpen={isSidebarOpen} onOpenSidebar={openSidebar} onRefresh={refetch} />
     <div className="container">
-      <Header onOpenSidebar={openSidebar} onRefresh={refetch} />
       <Sidebar isOpen={isSidebarOpen} onClose={closeSidebar} />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/details" element={<Details />} />
       </Routes>
+    </div>
     </div>
   );
 }

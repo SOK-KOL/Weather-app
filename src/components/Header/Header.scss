@@ -7,8 +7,32 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 9;
+  z-index: 5;
   margin-bottom: 40px;
+
+  
+  
+  &::before{
+    width: 100%;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    background-color: rgb(41 37 82);
+    z-index: 6;
+    content: "";
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity $transition-default;
+  }
+  &--open{
+    &::before{
+      opacity: 0.75;
+      visibility: visible;
+      
+    }
+  }
+  
   &__inner {
     display: flex;
     justify-content: space-between;

@@ -106,14 +106,43 @@
       }
 
       &-wind {
+        position: relative;
         display: flex;
-        margin-top: auto;
         gap: 10px;
         flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
         width: 100%;
+        &::before{
+          background-color:$color-white-smoke ;
+          position: absolute;
+          content: "";
+          width: 2px;
+          height: 65px;
+          top: 30px;
+          right: 50%;
+        }
+        
+        &::after{
+          background-color:$color-white-smoke ;
+          position: absolute;
+          content: "";
+          width: 2px;
+          height: 220px;
+          top: calc(-100% - 30px);
+          right: 50%;
+          transform: rotate(90deg);
+        }
+        
+ &--small{
+  &::after{  
+    top: calc(-82%);                    
+    height: 140px;
+    }
+    &::after{
+     display: none;
+    }
+  }
 
+        
         &-title {
           font-size: 13px;
           margin: 0 auto;
@@ -123,6 +152,7 @@
         &-container {
           display: flex;
           gap: 17px;
+           justify-content: space-around;
         }
 
         &-speed {
@@ -133,13 +163,13 @@
 
           svg {
             fill: currentColor;
-            width: 18px;
-            height: 18px;
+            width: 20px;
+            height: 20px;
           }
         }
 
         &-text {
-          font-size: 13px;
+          font-size: 14px;
           color: $color-text-secondary;
         }
 

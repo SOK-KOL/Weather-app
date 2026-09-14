@@ -106,7 +106,7 @@ function ForecastList({
           })}
         </table>
 
-        {/* Вторая неделя (только для 14 дней) */}
+       
         {forecastDays === 14 && secondWeek.length > 0 && (
           <div className="forecast-table">
             <div className="forecast-table__header">
@@ -140,7 +140,7 @@ function ForecastList({
         )}
       </div>
 
-      {/* Десктопные карточки */}
+
       <ul className={`forecast-list ${forecastDays === 14 ? "forecast-list--large" : ""}`}>
         {days.map((day) => {
           const status = getStatusWeather(day.day.condition.code);
@@ -181,7 +181,7 @@ function ForecastList({
                 {"\u00B0"}
               </p>
 
-              <div className="forecast-list__element-wind">
+              <div className={`forecast-list__element-wind ${forecastDays === 14 ? "forecast-list__element-wind--small" : ""}`}>
                 <p className="forecast-list__element-wind-title">Ветер:</p>
                 <div className="forecast-list__element-wind-container">
                   <div className="forecast-list__element-wind-speed">
