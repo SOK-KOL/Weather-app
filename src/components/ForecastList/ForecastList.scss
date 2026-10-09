@@ -190,7 +190,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@include tablet {
   .forecast {
 
     &__form {

@@ -30,6 +30,7 @@ function Table({ tableData, scale }: WeatherProps) {
       <div className="table__wrapper">
         <h3 className="table__wrapper-title">Детальные данные</h3>
         <p className="table__wrapper-info">Почасовые показатели по дням</p>
+
         <table className="table-mobile">
           <thead>
             <tr className="table__row">
