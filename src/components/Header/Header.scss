@@ -10,9 +10,7 @@
   z-index: 5;
   margin-bottom: 40px;
 
-  
-  
-  &::before{
+  &::before {
     width: 100%;
     left: 0;
     top: 0;
@@ -25,14 +23,14 @@
     visibility: hidden;
     transition: opacity $transition-default;
   }
-  &--open{
-    &::before{
+
+  &--open {
+    &::before {
       opacity: 0.75;
       visibility: visible;
-      
     }
   }
-  
+
   &__inner {
     display: flex;
     justify-content: space-between;
@@ -49,20 +47,18 @@
       font-size: 24px;
       font-weight: 700;
       margin: 0;
-      
-      @include tablet{
+
+      @include tablet {
         font-size: 19px;
       }
-      @include mobile{
-        font-size: 16px
+      @include mobile {
+        font-size: 16px;
       }
-    
     }
-    &__icon{
-      @include tablet{
-      display: none;
+    &__icon {
+      @include tablet {
+        display: none;
       }
-      
     }
   }
 
@@ -82,7 +78,6 @@
       border: none;
       cursor: pointer;
       transition: $transition-default;
-    
 
       svg {
         width: 18px;
@@ -96,19 +91,16 @@
         font-size: 15px;
         font-weight: 500;
 
-
-        @include tablet{
+        @include tablet {
           display: none;
         }
       }
 
-      &--update{
-        @include mobile{
-          display: none
+      &--update {
+        @include mobile {
+          display: none;
         }
       }
-
-      
 
       &--settings {
         width: 40px;
@@ -122,13 +114,10 @@
         }
       }
 
-      &-icon{
+      &-icon {
         width: 42px;
         height: 42px;
       }
-
-
-
     }
   }
 }

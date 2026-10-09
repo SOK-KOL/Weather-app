@@ -1,0 +1,103 @@
+@use "../../styles/variables" as *;
+
+.modal {
+  background-color: rgb(19, 63, 135);
+  position: fixed;
+  border-radius: $radius-card;
+  top: 56%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 7;
+  padding: 20px;
+  min-height: 400px;
+
+  &-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0 0 20px;
+    &__day {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    &__time {
+      margin: 0;
+    }
+    svg {
+      fill: currentColor;
+      width: 25px;
+      height: 25px;
+    }
+  }
+
+  &-temp {
+    margin: 0 0 15px;
+    &__name {
+      margin: 0 0 20px;
+      text-align: center;
+    }
+    &__cards {
+      display: flex;
+      justify-content: space-between;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      gap: 10px;
+    }
+    &__card {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      background-color: rgb(11, 11, 167);
+      border-radius: 10px;
+      gap: 10px;
+      width: 60px;
+      height: 70px;
+      padding: 5px;
+      &-time {
+        margin: 0;
+      }
+      &-temp {
+        margin: 0;
+      }
+    }
+  }
+
+  &-info {
+    &__name {
+      margin: 0 0 20px;
+      text-align: center;
+    }
+    &__cards {
+      display: grid;
+      gap: 15px;
+      grid-template-columns: 1fr 1fr;
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+
+    &__card {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      gap: 10px;
+      background-color: rgb(11, 11, 167);
+      border-radius: 10px;
+      gap: 10px;
+
+      height: 70px;
+      padding: 5px;
+      &-name {
+        margin: 0;
+      }
+      &-condition {
+        margin: 0;
+      }
+    }
+    &__card:last-child {
+      grid-column: span 2;
+    }
+  }
+}
