@@ -24,18 +24,17 @@ function ForecastList({
   const getWeekDayShort = (dateStr: string) => {
     return new Date(dateStr).toLocaleDateString("ru", {
       day: "numeric",
-      month: "numeric"
+      month: "numeric",
     });
   };
 
-  
   const firstWeek = days.slice(0, 7);
   const secondWeek = days.slice(7, 14);
 
   return (
     <div className="forecast">
-      <form className="forecast__form">
-        <p className="forecast__form-title">Прогноз на </p>
+      <fieldset className="forecast__form">
+        <legend className="forecast__form-title">Прогноз на</legend>
 
         <input
           className="forecast__form-input"
@@ -62,30 +61,30 @@ function ForecastList({
         <label className="forecast__form-label" htmlFor="fourteen">
           14
         </label>
-        <p className="forecast__form-title">дней</p>
-      </form>
+        <span className="forecast__form-title">дней</span>
+      </fieldset>
 
-    
       <div className="forecast-mobile">
-        
         <table className="forecast-table">
           <thead className="forecast-table__header">
             <tr>
-
-            <th className="forecast-table__header-cell">День</th>
+              <th className="forecast-table__header-cell">День</th>
             </tr>
             <tr>
-            <th className="forecast-table__header-cell">Погода</th>
+              <th className="forecast-table__header-cell">Погода</th>
             </tr>
             <tr>
-
-            <th className="forecast-table__header-cell">°C</th>
+              <th className="forecast-table__header-cell">°C</th>
             </tr>
           </thead>
 
           {firstWeek.map((day) => {
-            const maxTemp = Math.round(scale === "C" ? day.day.maxtemp_c : day.day.maxtemp_f);
-            const minTemp = Math.round(scale === "C" ? day.day.mintemp_c : day.day.mintemp_f);
+            const maxTemp = Math.round(
+              scale === "C" ? day.day.maxtemp_c : day.day.maxtemp_f,
+            );
+            const minTemp = Math.round(
+              scale === "C" ? day.day.mintemp_c : day.day.mintemp_f,
+            );
             const weekDay = getWeekDayShort(day.date);
 
             return (
@@ -95,18 +94,19 @@ function ForecastList({
                 </tr>
 
                 <tr className="forecast-table__row-cell forecast-table__row-cell--weather">
-                 <td> {day.day.condition.text}</td>
+                  <td> {day.day.condition.text}</td>
                 </tr>
 
                 <tr className="forecast-table__row-cell forecast-table__row-cell--temp">
-                 <td>{maxTemp}° / {minTemp}°</td> 
+                  <td>
+                    {maxTemp}° / {minTemp}°
+                  </td>
                 </tr>
               </tbody>
             );
           })}
         </table>
 
-       
         {forecastDays === 14 && secondWeek.length > 0 && (
           <div className="forecast-table">
             <div className="forecast-table__header">
@@ -116,8 +116,12 @@ function ForecastList({
             </div>
 
             {secondWeek.map((day) => {
-              const maxTemp = Math.round(scale === "C" ? day.day.maxtemp_c : day.day.maxtemp_f);
-              const minTemp = Math.round(scale === "C" ? day.day.mintemp_c : day.day.mintemp_f);
+              const maxTemp = Math.round(
+                scale === "C" ? day.day.maxtemp_c : day.day.maxtemp_f,
+              );
+              const minTemp = Math.round(
+                scale === "C" ? day.day.mintemp_c : day.day.mintemp_f,
+              );
               const weekDay = getWeekDayShort(day.date);
 
               return (
@@ -140,8 +144,9 @@ function ForecastList({
         )}
       </div>
 
-
-      <ul className={`forecast-list ${forecastDays === 14 ? "forecast-list--large" : ""}`}>
+      <ul
+        className={`forecast-list ${forecastDays === 14 ? "forecast-list--large" : ""}`}
+      >
         {days.map((day) => {
           const status = getStatusWeather(day.day.condition.code);
           const maxTempC = Math.round(day.day.maxtemp_c);
@@ -181,7 +186,9 @@ function ForecastList({
                 {"\u00B0"}
               </p>
 
-              <div className={`forecast-list__element-wind ${forecastDays === 14 ? "forecast-list__element-wind--small" : ""}`}>
+              <div
+                className={`forecast-list__element-wind ${forecastDays === 14 ? "forecast-list__element-wind--small" : ""}`}
+              >
                 <p className="forecast-list__element-wind-title">Ветер:</p>
                 <div className="forecast-list__element-wind-container">
                   <div className="forecast-list__element-wind-speed">
