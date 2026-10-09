@@ -52,50 +52,52 @@ function Details() {
         pressureUnits === "hydrargyrum"
           ? Math.round(noon.pressure_mb * 0.750062) + " мм. рт. ст."
           : noon.pressure_mb + " гПа",
+      longNameDay: new Date(day.date).toLocaleDateString("ru", {
+        weekday: "long",
+      }),
     };
   });
-
+  console.log(infoWeather);
   if (isLoading) {
     return <Loader />;
   }
 
   return (
     <div className="details">
-        <BackButton />
-        <p className="details__text">Подробный прогноз</p>
-        <div className="details__location">
-          <h2 className="details__location-city">
-            {currentWeather.location.name}
-          </h2>
-          <span className="details__location-country">
-            <Location />
-            {currentWeather.location.country}
-          </span>
-        </div>
-        <p className="details__info">Аналитика и данные на 5 дней вперёд</p>
-
-        {isFetching ? (
-          <Loader />
-        ) : (
-          <>
-            <div className="details__charts">
-              <div className="details__chart details__chart--temp">
-                <TempChart temp={infoWeather} />
-              </div>
-              <div className="details__chart details__chart--humidity">
-                <HumidityChart humidity={infoWeather} />
-              </div>
-              <div className="details__chart details__chart--wind">
-                <WindChart wind={infoWeather} />
-              </div>
-            </div>
-            <div className="details__table">
-              <Table scale={scale} tableData={infoWeather} />
-            </div>
-          </>
-        )}
+      <BackButton />
+      <p className="details__text">Подробный прогноз</p>
+      <div className="details__location">
+        <h2 className="details__location-city">
+          {currentWeather.location.name}
+        </h2>
+        <span className="details__location-country">
+          <Location />
+          {currentWeather.location.country}
+        </span>
       </div>
+      <p className="details__info">Аналитика и данные на 5 дней вперёд</p>
 
+      {isFetching ? (
+        <Loader />
+      ) : (
+        <>
+          <div className="details__charts">
+            <div className="details__chart details__chart--temp">
+              <TempChart temp={infoWeather} />
+            </div>
+            <div className="details__chart details__chart--humidity">
+              <HumidityChart humidity={infoWeather} />
+            </div>
+            <div className="details__chart details__chart--wind">
+              <WindChart wind={infoWeather} />
+            </div>
+          </div>
+          <div className="details__table">
+            <Table scale={scale} tableData={infoWeather} />
+          </div>
+        </>
+      )}
+    </div>
   );
 }
 

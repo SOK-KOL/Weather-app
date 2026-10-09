@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function useSidebar() {
+export default function useOpen() {
   const [isOpen, setOpen] = useState(false);
 
   const open = () => setOpen(true);

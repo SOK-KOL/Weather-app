@@ -7,4 +7,5 @@ export type TableInfoData = {
   humidity: number;
   wind: number;
   pressure: string;
+  longNameDay: string;
 };
