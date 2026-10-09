@@ -111,7 +111,10 @@ function SearchBar({ onCityChange, error }: SearchBarProps) {
             onFocus={() => setFocus(true)}
             onBlur={() => setFocus(false)}
           />
-
+<button className="search-bar__button">
+          <Find />
+          <p className="search-bar__button-text">Найти</p>
+        </button>
           {focus && (
             <ul className="search-bar__tips">
               {displaySuggestions
@@ -132,10 +135,7 @@ function SearchBar({ onCityChange, error }: SearchBarProps) {
             </ul>
           )}
         </div>
-        <button className="search-bar__button">
-          <Find />
-          <p className="search-bar__button-text">Найти</p>
-        </button>
+        
       </form>
     </div>
   );

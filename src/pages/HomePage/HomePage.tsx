@@ -2,7 +2,7 @@ import "./HomePage.scss";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import CurrentWeather from "../../components/CurrentWeather/CurrentWeather";
 import ForecastList from "../../components/ForecastList/ForecastList";
-import { searchCity } from "../../services/WeatherAPI";
+import { searchCity } from "../../Services/WeatherAPI";
 import Loader from "../../components/UI/Loader";
 import { Link } from "react-router-dom";
 import { useAppContext } from "../../context/AppContext";
@@ -43,30 +43,28 @@ function HomePage() {
 
   return (
     <div className="weather">
-  
-        <SearchBar onCityChange={handleCityChange} error={error} />
+      <SearchBar onCityChange={handleCityChange} error={error} />
 
-        {isFetching ? (
-          <Loader />
-        ) : (
-          <>
-            <CurrentWeather
-              pressure={pressureUnits}
-              scale={scale}
-              weatherData={weather}
-            />
-            <ForecastList
-              scale={scale}
-              forecastData={weather}
-              forecastDays={forecastDays}
-              setForecastDays={setForecastDays}
-            />
-            <Link className="weather__link" to="/details" state={{ weather }}>
-              Подробный прогноз
-            </Link>
-          </>
-        )}
-
+      {isFetching ? (
+        <Loader />
+      ) : (
+        <>
+          <CurrentWeather
+            pressure={pressureUnits}
+            scale={scale}
+            weatherData={weather}
+          />
+          <ForecastList
+            scale={scale}
+            forecastData={weather}
+            forecastDays={forecastDays}
+            setForecastDays={setForecastDays}
+          />
+          <Link className="weather__link" to="/details" state={{ weather }}>
+            Подробный прогноз
+          </Link>
+        </>
+      )}
     </div>
   );
 }

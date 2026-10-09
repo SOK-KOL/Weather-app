@@ -7,6 +7,15 @@
   border: 1px solid $color-border;
   backdrop-filter: blur(10px);
 
+  @include tablet{
+    width: 93vw;
+    padding: 12px;
+  }
+  
+  @include mobile {
+    padding: 10px;
+  }
+
   &__title {
     font-size: 18px;
     font-weight: 600;

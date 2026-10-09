@@ -1,4 +1,3 @@
-
 import type { TempData } from "../../../types/chartsData";
 
 import "../Chart.scss";
@@ -9,6 +8,7 @@ import {
   XAxis,
   YAxis,
   Tooltip,
+  Brush
 } from "recharts";
 
 interface tempProps {
@@ -16,22 +16,26 @@ interface tempProps {
 }
 
 function TempChart({ temp }: tempProps) {
+  console.log(temp.length);
   return (
     <div className="chart ">
       <h3 className="chart__title">Температура</h3>
       <p className="chart__info">Утро/День/Вечер</p>
-      <ResponsiveContainer width={"100%"} height={200}>
-        <LineChart data={temp}>
+      <ResponsiveContainer  height={200 }>
+        <LineChart responsive data={temp} >
           <XAxis
             dataKey="day"
             tick={{ fontSize: 16, fontWeight: 700 }}
             axisLine={{ strokeWidth: 3 }}
             stroke="#1060e2"
+            interval="preserveStartEnd" 
+            scale="point" 
           />
           <YAxis
             tick={{ fontSize: 16, fontWeight: 700 }}
             axisLine={{ strokeWidth: 3 }}
             stroke="#1060e2"
+            width={"auto"}
           />
           <Line
             type="monotone"
@@ -70,10 +74,19 @@ function TempChart({ temp }: tempProps) {
               padding: "0",
             }}
           />
+           <Brush 
+    dataKey="day" 
+    height={30} 
+    stroke="#1060e2" 
+    fill="#1d3037"
+ startIndex={0}
+ endIndex={temp.length > 5 ? 7 : 4}
+  />
         </LineChart>
       </ResponsiveContainer>
     </div>
   );
+  
 }
 
 export default TempChart;

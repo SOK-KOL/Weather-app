@@ -1,6 +1,6 @@
 import { createContext, useState, useContext } from "react";
-import useSidebar from "../components/hooks/useSidebar";
-import useWeather from "../components/hooks/useWeather";
+import useOpen from "../hooks/useOpen";
+import useWeather from "../hooks/useWeather";
 import type { Scale } from "../types/Scale";
 import type { NowWeather } from "../types";
 
@@ -21,14 +21,18 @@ type AppContextType = {
   isSidebarOpen: boolean;
   openSidebar: () => void;
   closeSidebar: () => void;
+  isModalOpen: boolean;
+  openModal: () => void;
+  closeModal: () => boolean;
 };
 const AppContext = createContext<AppContextType | null>(null);
 
 export function AppProvider({ children }: { children: React.ReactNode }) {
-  const { isOpen, open, close } = useSidebar();
+  const { isOpen, open, close } = useOpen();
   const [scale, setScale] = useState<Scale>("C");
   const [pressureUnits, setPressureUnits] = useState<string>("hydrargyrum");
-
+  const sidebar = useOpen();
+  const modal = useOpen();
   const {
     weather,
     isLoading,
@@ -58,9 +62,13 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     forecastDays,
     setForecastDays,
     // хуки sidebar
-    isSidebarOpen: isOpen,
-    openSidebar: open,
-    closeSidebar: close,
+    isSidebarOpen: sidebar.isOpen,
+    openSidebar: sidebar.open,
+    closeSidebar: sidebar.close,
+    // хуки ModalWeather
+    isModalOpen: modal.isOpen,
+    openModal: modal.open,
+    closeModal: modal.close,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

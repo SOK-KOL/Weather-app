@@ -9,13 +9,24 @@
 
   &__form {
     display: flex;
-    gap: 20px;
     width: 100%;
     align-items: center;
   }
+
   &__input-wrapper {
     position: relative;
     flex: 1;
+    display: flex;
+    align-items: center;
+    background-color: $color-input-halfWhite;
+    border: 1px solid $color-border;
+    border-radius: $radius-button;
+    transition: $transition-default;
+
+    &:focus-within {
+      border-color: $color-accent-blue;
+      background-color: rgba(255, 255, 255, 0.08);
+    }
   }
 
   &__input-error {
@@ -31,21 +42,14 @@
   &__input {
     width: 100%;
     padding: 12px 16px;
-    background-color: $color-input-halfWhite;
-    border: 1px solid $color-border;
-    border-radius: $radius-button;
+    background-color: transparent;
+    border: none;
+    outline: none;
     color: $color-text-primary;
     font-size: 16px;
-    transition: $transition-default;
 
     &::placeholder {
       color: $color-text-secondary;
-    }
-
-    &:focus {
-      outline: none;
-      border-color: $color-accent-blue;
-      background-color: rgba(255, 255, 255, 0.08);
     }
   }
 
@@ -90,34 +94,40 @@
     padding: 12px 24px;
     background-color: $color-accent-blue;
     border: none;
-    border-radius: $radius-button;
     color: $color-text-primary;
+    
     font-size: 16px;
     font-weight: 500;
     cursor: pointer;
     transition: $transition-default;
+
     &:hover {
-      background: $color-accent-blue-hover;
+      color: $color-text-primary;
     }
-    @include tablet{
+
+    @include tablet {
       width: 50px;
       height: 50px;
       padding: 10px;
     }
+
     svg {
       width: 18px;
       height: 18px;
       fill: currentColor;
     }
+
     &-text {
       margin: 0;
       font-size: 16px;
-      @include tablet{
+
+      @include tablet {
         display: none;
       }
     }
   }
 }
+
 .show {
   display: block;
 }
