@@ -155,9 +155,7 @@ function ForecastList({
           const minTempC = Math.round(day.day.mintemp_c);
           const maxTempF = Math.round(day.day.maxtemp_f);
           const minTempF = Math.round(day.day.mintemp_f);
-          {
-            console.log(day);
-          }
+
           const weekDay = new Date(day.date).toLocaleDateString("ru", {
             weekday: "short",
           });
