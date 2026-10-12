@@ -5,6 +5,7 @@ import type { Scale } from "../../types/Scale";
 import { getStatusWeather } from "../../utils/WeatherStatus";
 import Wind from "../../assets/icons/wind.svg?react";
 import { getWindWays } from "../../utils/WeatherWay";
+import { useAppContext } from "../../context/AppContext";
 
 interface ForecastProps {
   forecastData: NowWeather;
@@ -19,6 +20,7 @@ function ForecastList({
   forecastDays,
   setForecastDays,
 }: ForecastProps) {
+  const { setSelectedDay } = useAppContext();
   const days = forecastData.forecast.forecastday;
 
   const getWeekDayShort = (dateStr: string) => {
@@ -153,7 +155,9 @@ function ForecastList({
           const minTempC = Math.round(day.day.mintemp_c);
           const maxTempF = Math.round(day.day.maxtemp_f);
           const minTempF = Math.round(day.day.mintemp_f);
-
+          {
+            console.log(day);
+          }
           const weekDay = new Date(day.date).toLocaleDateString("ru", {
             weekday: "short",
           });
@@ -168,9 +172,11 @@ function ForecastList({
           return (
             <li
               key={day.date}
+              onClick={() => setSelectedDay(day)}
               className={`forecast-list__element ${
                 forecastDays === 14 ? "forecast-list__element--small" : ""
               }`}
+              style={{ cursor: "pointer" }}
             >
               <p className="forecast-list__element-day">{weekDay}</p>
               <p className="forecast-list__element-date">{date}</p>

@@ -2,7 +2,7 @@ import { createContext, useState, useContext } from "react";
 import useOpen from "../Hooks/useOpen";
 import useWeather from "../Hooks/useWeather";
 import type { Scale } from "../Types/Scale";
-import type { NowWeather } from "../Types";
+import type { NowWeather, ForecastDay } from "../Types";
 
 type AppContextType = {
   weather: NowWeather | null;
@@ -24,12 +24,16 @@ type AppContextType = {
   isModalOpen: boolean;
   openModal: () => void;
   closeModal: () => void;
+  selectedDay: ForecastDay | null;
+  setSelectedDay: (day: ForecastDay | null) => void;
 };
+
 const AppContext = createContext<AppContextType | null>(null);
 
 export function AppProvider({ children }: { children: React.ReactNode }) {
   const [scale, setScale] = useState<Scale>("C");
   const [pressureUnits, setPressureUnits] = useState<string>("hydrargyrum");
+  const [selectedDay, setSelectedDay] = useState<ForecastDay | null>(null);
   const sidebar = useOpen();
   const modal = useOpen();
   const {
@@ -45,7 +49,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   } = useWeather();
 
   const value = {
-    //хуки погодные
+    // погодные
     weather,
     isLoading,
     isFetching,
@@ -53,21 +57,24 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     refetch,
     cityId,
     setCityId,
-    // хуки настроек
+    // настройки
     scale,
     setScale,
     pressureUnits,
     setPressureUnits,
     forecastDays,
     setForecastDays,
-    // хуки sidebar
+    // sidebar
     isSidebarOpen: sidebar.isOpen,
     openSidebar: sidebar.open,
     closeSidebar: sidebar.close,
-    // хуки ModalWeather
+    // modal
     isModalOpen: modal.isOpen,
     openModal: modal.open,
     closeModal: modal.close,
+    // выбранный день
+    selectedDay,
+    setSelectedDay,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
