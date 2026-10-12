@@ -1,10 +1,10 @@
 import "../ForecastList/ForecastList.scss";
 import { WeatherSvg } from "weather-icons-animated";
-import type { NowWeather } from "../../types";
-import type { Scale } from "../../types/Scale";
-import { getStatusWeather } from "../../utils/WeatherStatus";
+import type { NowWeather } from "../../Types/Index";
+import type { Scale } from "../../Types/Scale";
+import { getStatusWeather } from "../../Utils/WeatherStatus";
 import Wind from "../../assets/icons/wind.svg?react";
-import { getWindWays } from "../../utils/WeatherWay";
+import { getWindWays } from "../../Utils/WeatherWay";
 import { useAppContext } from "../../context/AppContext";
 
 interface ForecastProps {

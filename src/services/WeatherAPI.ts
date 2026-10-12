@@ -1,4 +1,4 @@
-import type { WeatherResponse } from "../types/weather";
+import type { WeatherResponse } from "../Types/Weather";
 
 const KEY = import.meta.env.VITE_WEATHER_API_KEY;
 
@@ -41,7 +41,6 @@ export const fetchWeather = async (
 
     const data = await response.json();
     return { data, error: null };
-    
   } catch (error) {
     console.error("Ошибка запроса:", error);
     const fallbackCity = getNormalCity();

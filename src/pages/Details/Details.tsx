@@ -8,8 +8,8 @@ import Location from "../../assets/icons/location.svg?react";
 import "./Details.scss";
 import Loader from "../../Components/UI/Loader";
 import { useAppContext } from "../../context/AppContext";
-import type { ForecastDay } from "../../types";
-import type { Hour } from "../../types";
+import type { ForecastDay } from "../../Types/Index";
+import type { Hour } from "../../Types/Index";
 
 function Details() {
   const { weather, scale, isFetching, isLoading, pressureUnits, forecastDays } =

@@ -2,13 +2,13 @@ import { createContext, useState, useContext } from "react";
 import useOpen from "../Hooks/useOpen";
 import useWeather from "../Hooks/useWeather";
 import type { Scale } from "../Types/Scale";
-import type { NowWeather, ForecastDay } from "../Types";
+import type { NowWeather, ForecastDay } from "../Types/Index";
 
 type AppContextType = {
   weather: NowWeather | null;
   isLoading: boolean;
   isFetching: boolean;
-  error: Error | null;
+  error: string | null;
   refetch: () => void;
   cityId: number;
   setCityId: (id: number) => void;

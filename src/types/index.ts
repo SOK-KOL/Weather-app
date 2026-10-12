@@ -47,7 +47,7 @@ export type ForecastDay = {
   hour: Hour[];
 };
 
-type Hour = {
+export type Hour = {
   time: string;
   temp_c: number;
   temp_f: number;

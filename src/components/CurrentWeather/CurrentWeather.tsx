@@ -5,10 +5,10 @@ import Humidity from "../../assets/icons/humidity.svg?react";
 import Pressure from "../../assets/icons/pressure.svg?react";
 import Visibility from "../../assets/icons/visibility.svg?react";
 import Region from "../../assets/icons/region.svg?react";
-import type { NowWeather } from "../../types";
+import type { NowWeather } from "../../Types/Index";
 import { useEffect } from "react";
 import { getStatusWeather } from "../../Utils/WeatherStatus";
-import type { Scale } from "../../types/Scale";
+import type { Scale } from "../../Types/Scale";
 import { useAppContext } from "../../context/AppContext";
 
 interface CurrentWeatherProps {
