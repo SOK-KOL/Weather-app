@@ -1,4 +1,4 @@
-import type { NowWeather } from "./index";
+import type { NowWeather } from "../Types/Index";
 
 export interface WeatherResponse {
   data: NowWeather | null;

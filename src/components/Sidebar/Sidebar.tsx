@@ -9,15 +9,19 @@ interface SidebarProps {
 
 function Sidebar({ onClose, isOpen }: SidebarProps) {
   const menu = useRef<HTMLElement>(null);
-  useEffect(()=> {
+  useEffect(() => {
     const clickOutside = (e: MouseEvent) => {
-      if( isOpen && menu.current?.contains && !menu.current.contains(e.target as Node) ){
-      onClose();
+      if (
+        isOpen &&
+        menu.current?.contains &&
+        !menu.current.contains(e.target as Node)
+      ) {
+        onClose();
       }
-    }
-    document.addEventListener('mousedown', clickOutside);
-  },[isOpen])
-  
+    };
+    document.addEventListener("mousedown", clickOutside);
+  }, [isOpen]);
+
   const { scale, setScale, pressureUnits, setPressureUnits } = useAppContext();
   return (
     <aside ref={menu} className={`sidebar ${isOpen ? `sidebar--active` : ``} `}>
@@ -32,7 +36,7 @@ function Sidebar({ onClose, isOpen }: SidebarProps) {
             C{`\u00B0`}
           </label>
           <input
-            className="sideBar__form-input"
+            className="sidebar__form-input"
             type="radio"
             value={"C"}
             name="scale"

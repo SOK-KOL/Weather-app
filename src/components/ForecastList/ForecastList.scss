@@ -36,7 +36,9 @@
       cursor: pointer;
       font-size: 14px;
       font-weight: 500;
-      transition: background-color 0.3s, color 0.3s;
+      transition:
+        background-color 0.3s,
+        color 0.3s;
 
       &:hover {
         background-color: #0056b3;
@@ -111,8 +113,11 @@
         gap: 10px;
         flex-direction: column;
         width: 100%;
-        &::before{
-          background-color:$color-white-smoke ;
+        border-top: 2px solid $color-white-smoke; // ← горизонтальная линия
+        padding-top: 10px;
+
+        &::before {
+          background-color: $color-white-smoke;
           position: absolute;
           content: "";
           width: 2px;
@@ -120,29 +125,17 @@
           top: 30px;
           right: 50%;
         }
-        
-        &::after{
-          background-color:$color-white-smoke ;
-          position: absolute;
-          content: "";
-          width: 2px;
-          height: 220px;
-          top: calc(-100% - 30px);
-          right: 50%;
-          transform: rotate(90deg);
-        }
-        
- &--small{
-  &::after{  
-    top: calc(-82%);                    
-    height: 140px;
-    }
-    &::after{
-     display: none;
-    }
-  }
 
-        
+        &--small {
+          &::after {
+            top: calc(-82%);
+            height: 140px;
+          }
+          &::after {
+            display: none;
+          }
+        }
+
         &-title {
           font-size: 13px;
           margin: 0 auto;
@@ -152,7 +145,7 @@
         &-container {
           display: flex;
           gap: 17px;
-           justify-content: space-around;
+          justify-content: space-around;
         }
 
         &-speed {
@@ -192,7 +185,6 @@
 
 @include tablet {
   .forecast {
-
     &__form {
       justify-content: center;
       margin-bottom: 16px;
@@ -227,7 +219,7 @@
 
       &__header {
         display: flex;
-      justify-content: space-around;
+        justify-content: space-around;
         background-color: $color-bg-card;
         padding: 10px 8px;
         border-bottom: 1px solid $color-bg-card;

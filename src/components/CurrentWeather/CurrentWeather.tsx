@@ -1,5 +1,5 @@
 import "./CurrentWeather.scss";
-import { WeatherSvg   } from "weather-icons-animated";
+import { WeatherSvg } from "weather-icons-animated";
 import Wind from "../../assets/icons/wind.svg?react";
 import Humidity from "../../assets/icons/humidity.svg?react";
 import Pressure from "../../assets/icons/pressure.svg?react";
@@ -7,17 +7,14 @@ import Visibility from "../../assets/icons/visibility.svg?react";
 import Region from "../../assets/icons/region.svg?react";
 import type { NowWeather } from "../../types";
 import { useEffect } from "react";
-import { getStatusWeather } from "../../utils/WeatherStatus";
+import { getStatusWeather } from "../../Utils/WeatherStatus";
 import type { Scale } from "../../types/Scale";
-
-
 
 interface CurrentWeatherProps {
   weatherData: NowWeather;
   scale: Scale;
   pressure: string;
 }
-
 
 function CurrentWeather({ weatherData, scale, pressure }: CurrentWeatherProps) {
   const windSpeedMPS: string = (weatherData.current.wind_kph / 3.6).toFixed(1);
@@ -31,9 +28,8 @@ function CurrentWeather({ weatherData, scale, pressure }: CurrentWeatherProps) {
     const fullCity = `${weatherData.location.name}, ${weatherData.location.country}, ${weatherData.location.region}`;
     localStorage.setItem("city", fullCity);
   }, [weatherData.location.name]);
-  
+
   return (
-    
     <div className="current-weather">
       <section className="current-weather__inner">
         <div className="current-weather__content">

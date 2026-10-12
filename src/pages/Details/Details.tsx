@@ -1,13 +1,15 @@
-import TempChart from "../../components/Charts/Temp/TempChart";
-import BackButton from "../../components/Layout/BackButton";
+import TempChart from "../../Components/Charts/Temp/TempChart";
+import BackButton from "../../Components/Layout/BackButton";
 import { useLocation } from "react-router-dom";
-import HumidityChart from "../../components/Charts/Humidity/HumidityChart";
-import WindChart from "../../components/Charts/Wind/WindChart";
-import Table from "../../components/Table/Table";
+import HumidityChart from "../../Components/Charts/Humidity/HumidityChart";
+import WindChart from "../../Components/Charts/Wind/WindChart";
+import Table from "../../Components/Table/Table";
 import Location from "../../assets/icons/location.svg?react";
 import "./Details.scss";
-import Loader from "../../components/UI/Loader";
+import Loader from "../../Components/UI/Loader";
 import { useAppContext } from "../../context/AppContext";
+import type { ForecastDay } from "../../types";
+import type { Hour } from "../../types";
 
 function Details() {
   const { weather, scale, isFetching, isLoading, pressureUnits, forecastDays } =
@@ -16,51 +18,53 @@ function Details() {
   const location = useLocation();
   const weatherFromState = location.state?.weather;
 
+  if (isLoading) {
+    return <Loader />;
+  }
+
   const currentWeather = weather || weatherFromState;
 
   if (!currentWeather) {
     return <div>Нет данных</div>;
   }
 
-  const infoWeather = currentWeather.forecast.forecastday.map((day: any) => {
-    const hours = day.hour;
-    const noon = hours.find((h: any) => h.time.includes("12:00"));
-    const morning = hours.find((h: any) => h.time.includes("06:00"));
-    const evening = hours.find((h: any) => h.time.includes("18:00"));
+  const infoWeather = currentWeather.forecast.forecastday.map(
+    (day: ForecastDay) => {
+      const hours = day.hour;
+      const noon = hours.find((h: Hour) => h.time.includes("12:00"));
+      const morning = hours.find((h: Hour) => h.time.includes("06:00"));
+      const evening = hours.find((h: Hour) => h.time.includes("18:00"));
 
-    return {
-      day:
-        forecastDays === 5
-          ? new Date(day.date).toLocaleDateString("ru", { weekday: "short" })
-          : new Date(day.date).toLocaleDateString("ru", {
-              day: "numeric",
-            }),
-      tableDay: new Date(day.date).toLocaleDateString("ru"),
-      morning:
-        scale === "C"
-          ? Math.round(morning?.temp_c)
-          : Math.round(morning?.temp_f),
-      dayTime:
-        scale === "C" ? Math.round(noon?.temp_c) : Math.round(noon?.temp_f),
-      evening:
-        scale === "C"
-          ? Math.round(evening?.temp_c)
-          : Math.round(evening?.temp_f),
-      humidity: day.day.avghumidity,
-      wind: Math.round(day.day.maxwind_kph / 3.6),
-      pressure:
-        pressureUnits === "hydrargyrum"
-          ? Math.round(noon.pressure_mb * 0.750062) + " мм. рт. ст."
-          : noon.pressure_mb + " гПа",
-      longNameDay: new Date(day.date).toLocaleDateString("ru", {
-        weekday: "long",
-      }),
-    };
-  });
-  console.log(infoWeather);
-  if (isLoading) {
-    return <Loader />;
-  }
+      return {
+        day:
+          forecastDays === 5
+            ? new Date(day.date).toLocaleDateString("ru", { weekday: "short" })
+            : new Date(day.date).toLocaleDateString("ru", { day: "numeric" }),
+        tableDay: new Date(day.date).toLocaleDateString("ru"),
+        morning:
+          scale === "C"
+            ? Math.round(morning?.temp_c ?? 0)
+            : Math.round(morning?.temp_f ?? 0),
+        dayTime:
+          scale === "C"
+            ? Math.round(noon?.temp_c ?? 0)
+            : Math.round(noon?.temp_f ?? 0),
+        evening:
+          scale === "C"
+            ? Math.round(evening?.temp_c ?? 0)
+            : Math.round(evening?.temp_f ?? 0),
+        humidity: day.day.avghumidity,
+        wind: Math.round(day.day.maxwind_kph / 3.6),
+        pressure:
+          pressureUnits === "hydrargyrum"
+            ? Math.round((noon?.pressure_mb ?? 0) * 0.750062) + " мм. рт. ст."
+            : (noon?.pressure_mb ?? 0) + " гПа",
+        longNameDay: new Date(day.date).toLocaleDateString("ru", {
+          weekday: "long",
+        }),
+      };
+    },
+  );
 
   return (
     <div className="details">

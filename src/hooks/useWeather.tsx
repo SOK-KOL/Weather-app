@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { fetchWeather } from "../Services/WeatherAPI";
-import type { NowWeather } from "../types";
 
 export default function useWeather() {
   const [cityId, setCityId] = useState<number>(() => {
@@ -34,8 +33,6 @@ export default function useWeather() {
     },
     enabled: !!cityId,
     refetchOnWindowFocus: false,
-    refetchOnMount: false,
-    staleTime: Infinity,
   });
 
   useEffect(() => {
@@ -47,7 +44,7 @@ export default function useWeather() {
   }, [queryError]);
 
   return {
-    weather: weather as NowWeather,
+    weather: weather,
     isLoading,
     isFetching,
     error,

@@ -1,34 +1,33 @@
 import { createContext, useState, useContext } from "react";
-import useOpen from "../hooks/useOpen";
-import useWeather from "../hooks/useWeather";
-import type { Scale } from "../types/Scale";
-import type { NowWeather } from "../types";
+import useOpen from "../Hooks/useOpen";
+import useWeather from "../Hooks/useWeather";
+import type { Scale } from "../Types/Scale";
+import type { NowWeather } from "../Types";
 
 type AppContextType = {
-  weather: NowWeather;
+  weather: NowWeather | null;
   isLoading: boolean;
   isFetching: boolean;
-  error: any;
+  error: Error | null;
   refetch: () => void;
-  cityId: any;
-  setCityId: (id: any) => void;
+  cityId: number;
+  setCityId: (id: number) => void;
   scale: Scale;
   setScale: (scale: Scale) => void;
   pressureUnits: string;
   setPressureUnits: (pressure: string) => void;
-  forecastDays: any;
-  setForecastDays: (days: any) => void;
+  forecastDays: number;
+  setForecastDays: (days: number) => void;
   isSidebarOpen: boolean;
   openSidebar: () => void;
   closeSidebar: () => void;
   isModalOpen: boolean;
   openModal: () => void;
-  closeModal: () => boolean;
+  closeModal: () => void;
 };
 const AppContext = createContext<AppContextType | null>(null);
 
 export function AppProvider({ children }: { children: React.ReactNode }) {
-  const { isOpen, open, close } = useOpen();
   const [scale, setScale] = useState<Scale>("C");
   const [pressureUnits, setPressureUnits] = useState<string>("hydrargyrum");
   const sidebar = useOpen();

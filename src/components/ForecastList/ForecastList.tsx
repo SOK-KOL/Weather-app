@@ -33,8 +33,8 @@ function ForecastList({
 
   return (
     <div className="forecast">
-      <fieldset className="forecast__form">
-        <legend className="forecast__form-title">Прогноз на</legend>
+      <div className="forecast__form">
+        <p className="forecast__form-title">Прогноз на </p>
 
         <input
           className="forecast__form-input"
@@ -61,8 +61,8 @@ function ForecastList({
         <label className="forecast__form-label" htmlFor="fourteen">
           14
         </label>
-        <span className="forecast__form-title">дней</span>
-      </fieldset>
+        <p className="forecast__form-title">дней</p>
+      </div>
 
       <div className="forecast-mobile">
         <table className="forecast-table">
