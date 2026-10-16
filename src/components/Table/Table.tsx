@@ -1,6 +1,7 @@
 import type { Scale } from "../../Types/Scale";
 import type { TableInfoData } from "../../Types/Table";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import ModalWindow from "../ModalWindow/ModalWindow";
 
 import "./Table.scss";
@@ -13,7 +14,8 @@ interface WeatherProps {
 
 function Table({ tableData, scale }: WeatherProps) {
   const [selectedRow, setSelectedRow] = useState<TableInfoData | null>(null);
-  const { openModal, closeModal } = useAppContext();
+  const { openModal, closeModal, weather, setSelectedDay } = useAppContext();
+  const navigate = useNavigate();
 
   const handleOpen = (row: TableInfoData) => {
     setSelectedRow(row);
@@ -23,6 +25,15 @@ function Table({ tableData, scale }: WeatherProps) {
   const handleClose = () => {
     setSelectedRow(null);
     closeModal();
+  };
+
+  const handleDesktopClick = (row: TableInfoData) => {
+    const index = tableData.findIndex((r) => r.day === row.day);
+    const forecastDay = weather?.forecast.forecastday[index];
+    if (forecastDay) {
+      setSelectedDay(forecastDay);
+      navigate("/");
+    }
   };
 
   return (
@@ -109,7 +120,12 @@ function Table({ tableData, scale }: WeatherProps) {
           </thead>
           <tbody>
             {tableData.map((row) => (
-              <tr className="table__row" key={row.day}>
+              <tr
+                onClick={() => handleDesktopClick(row)}
+                className="table__row"
+                key={row.day}
+                style={{ cursor: "pointer" }}
+              >
                 <td className="table__cell table__cell--day">{row.tableDay}</td>
                 <td className="table__cell">
                   {row.morning}
