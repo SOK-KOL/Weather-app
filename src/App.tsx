@@ -1,9 +1,9 @@
 import { Routes, Route } from "react-router-dom";
-import Header from "./components/Header/Header";
-import Sidebar from "./components/Sidebar/Sidebar";
-import HomePage from "./pages/HomePage/HomePage";
-import Details from "./pages/Details/Details";
-import { useAppContext } from "./context/AppContext";
+import Header from "./Components/Header/Header";
+import Sidebar from "./Components/Sidebar/Sidebar";
+import HomePage from "./Pages/HomePage/HomePage";
+import Details from "./Pages/Details/Details";
+import { useAppContext } from "./Context/AppContext";
 
 function App() {
   const { openSidebar, refetch, isSidebarOpen, closeSidebar, isModalOpen } =

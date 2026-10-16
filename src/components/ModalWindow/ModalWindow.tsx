@@ -1,4 +1,4 @@
-import type { TableInfoData } from "../../types/Table";
+import type { TableInfoData } from "../../Types/Table";
 import CloseIcon from "../../assets/icons/close.svg?react";
 import "./ModalWindow.scss";
 interface ModalWindowProps {

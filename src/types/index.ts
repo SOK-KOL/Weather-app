@@ -38,6 +38,7 @@ export type ForecastDay = {
     mintemp_f: number;
     avghumidity: number;
     maxwind_kph: number;
+    avgvis_km: number;
     condition: {
       text: string;
       code: number;
@@ -46,11 +47,16 @@ export type ForecastDay = {
   hour: Hour[];
 };
 
-type Hour = {
+export type Hour = {
   time: string;
   temp_c: number;
+  temp_f: number;
+  feelslike_c: number;
+  feelslike_f: number;
   humidity: number;
   wind_kph: number;
+  pressure_mb: number;
+  vis_km: number;
   condition: {
     text: string;
     code: number;

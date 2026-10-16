@@ -1,4 +1,4 @@
-import type { WindData } from "../../../types/chartsData";
+import type { WindData } from "../../../Types/ChartsData";
 import {
   Area,
   AreaChart,
@@ -6,7 +6,7 @@ import {
   Tooltip,
   XAxis,
   YAxis,
-  Brush
+  Brush,
 } from "recharts";
 
 interface WindChartPRops {
@@ -62,14 +62,14 @@ function WindChart({ wind }: WindChartPRops) {
             name="Ветер"
             dot={{ fill: "#0bf50b", r: 5 }}
           />
-          <Brush 
-                        dataKey="day" 
-                        height={30} 
-                        stroke="#82ca9d" 
-                        fill="#1d3037"
-                     startIndex={0}
-                     endIndex={wind.length > 5 ? 7 : 4}
-                      />
+          <Brush
+            dataKey="day"
+            height={30}
+            stroke="#82ca9d"
+            fill="#1d3037"
+            startIndex={0}
+            endIndex={wind.length > 5 ? 7 : 4}
+          />
         </AreaChart>
       </ResponsiveContainer>
     </div>

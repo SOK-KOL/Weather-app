@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { fetchWeather } from "../Services/WeatherAPI";
-import type { NowWeather } from "../types";
+import { fetchWeather } from "../../SRC/Services/WeatherAPI";
+import type { NowWeather } from "../Types/Index";
 
 export default function useWeather() {
   const [cityId, setCityId] = useState<number>(() => {

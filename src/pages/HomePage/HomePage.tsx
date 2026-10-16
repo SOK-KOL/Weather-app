@@ -1,11 +1,11 @@
 import "./HomePage.scss";
-import SearchBar from "../../components/SearchBar/SearchBar";
-import CurrentWeather from "../../components/CurrentWeather/CurrentWeather";
-import ForecastList from "../../components/ForecastList/ForecastList";
+import SearchBar from "../../Components/SearchBar/SearchBar";
+import CurrentWeather from "../../Components/CurrentWeather/CurrentWeather";
+import ForecastList from "../../Components/ForecastList/ForecastList";
 import { searchCity } from "../../Services/WeatherAPI";
-import Loader from "../../components/UI/Loader";
+import Loader from "../../Components/UI/Loader";
 import { Link } from "react-router-dom";
-import { useAppContext } from "../../context/AppContext";
+import { useAppContext } from "../../Context/AppContext";
 
 function HomePage() {
   const {
@@ -31,7 +31,7 @@ function HomePage() {
     }
   };
 
-  if (isLoading) {
+  if (isLoading || !weather) {
     return (
       <div className="weather">
         <div className="container">
