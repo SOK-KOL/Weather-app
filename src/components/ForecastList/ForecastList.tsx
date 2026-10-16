@@ -5,7 +5,7 @@ import type { Scale } from "../../Types/Scale";
 import { getStatusWeather } from "../../Utils/WeatherStatus";
 import Wind from "../../assets/icons/wind.svg?react";
 import { getWindWays } from "../../Utils/WeatherWay";
-import { useAppContext } from "../../context/AppContext";
+import { useAppContext } from "../../Context/AppContext";
 
 interface ForecastProps {
   forecastData: NowWeather;
@@ -170,7 +170,10 @@ function ForecastList({
           return (
             <li
               key={day.date}
-              onClick={() => setSelectedDay(day)}
+              onClick={() => {
+                const isToday = day.date === days[0].date;
+                setSelectedDay(isToday ? null : day);
+              }}
               className={`forecast-list__element ${
                 forecastDays === 14 ? "forecast-list__element--small" : ""
               }`}

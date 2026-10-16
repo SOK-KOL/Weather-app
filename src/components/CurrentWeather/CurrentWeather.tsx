@@ -9,7 +9,7 @@ import type { NowWeather } from "../../Types/Index";
 import { useEffect } from "react";
 import { getStatusWeather } from "../../Utils/WeatherStatus";
 import type { Scale } from "../../Types/Scale";
-import { useAppContext } from "../../context/AppContext";
+import { useAppContext } from "../../Context/AppContext";
 
 interface CurrentWeatherProps {
   weatherData: NowWeather;

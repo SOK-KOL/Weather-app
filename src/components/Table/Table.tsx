@@ -1,10 +1,10 @@
-import type { Scale } from "../../types/Scale";
-import type { TableInfoData } from "../../types/Table";
+import type { Scale } from "../../Types/Scale";
+import type { TableInfoData } from "../../Types/Table";
 import { useState } from "react";
 import ModalWindow from "../ModalWindow/ModalWindow";
 
 import "./Table.scss";
-import { useAppContext } from "../../context/AppContext";
+import { useAppContext } from "../../Context/AppContext";
 
 interface WeatherProps {
   tableData: TableInfoData[];

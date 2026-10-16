@@ -1,6 +1,6 @@
 import "./Sidebar.scss";
 import Close from "../../assets/icons/close.svg?react";
-import { useAppContext } from "../../context/AppContext";
+import { useAppContext } from "../../Context/AppContext";
 import { useEffect, useRef } from "react";
 interface SidebarProps {
   onClose: () => void;

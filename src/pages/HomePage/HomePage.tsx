@@ -5,7 +5,7 @@ import ForecastList from "../../Components/ForecastList/ForecastList";
 import { searchCity } from "../../Services/WeatherAPI";
 import Loader from "../../Components/UI/Loader";
 import { Link } from "react-router-dom";
-import { useAppContext } from "../../context/AppContext";
+import { useAppContext } from "../../Context/AppContext";
 
 function HomePage() {
   const {

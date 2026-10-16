@@ -7,7 +7,7 @@ import Table from "../../Components/Table/Table";
 import Location from "../../assets/icons/location.svg?react";
 import "./Details.scss";
 import Loader from "../../Components/UI/Loader";
-import { useAppContext } from "../../context/AppContext";
+import { useAppContext } from "../../Context/AppContext";
 import type { ForecastDay } from "../../Types/Index";
 import type { Hour } from "../../Types/Index";
 

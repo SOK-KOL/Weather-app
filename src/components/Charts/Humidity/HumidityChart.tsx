@@ -5,9 +5,9 @@ import {
   XAxis,
   YAxis,
   Tooltip,
-  Brush
+  Brush,
 } from "recharts";
-import type { HumidityData } from "../../../types/chartsData";
+import type { HumidityData } from "../../../Types/ChartsData";
 
 interface HumidityChartProps {
   humidity: HumidityData[];
@@ -56,14 +56,14 @@ function HumidityChart({ humidity }: HumidityChartProps) {
             fill="rgba(13, 165, 189, 0.72)"
             name={"Влажность"}
           />
-          <Brush 
-              dataKey="day" 
-              height={30} 
-              stroke="rgb(35, 199, 224)" 
-              fill="#1d3037"
-           startIndex={0}
-           endIndex={humidity.length > 5 ? 7 : 4}
-            />
+          <Brush
+            dataKey="day"
+            height={30}
+            stroke="rgb(35, 199, 224)"
+            fill="#1d3037"
+            startIndex={0}
+            endIndex={humidity.length > 5 ? 7 : 4}
+          />
         </BarChart>
       </ResponsiveContainer>
     </div>
